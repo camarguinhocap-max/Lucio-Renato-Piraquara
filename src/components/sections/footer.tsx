@@ -1,0 +1,61 @@
+export function SiteFooter() {
+  return (
+    <footer className="bg-petrol text-petrol-foreground">
+      <div className="container-editorial py-16">
+        <div className="grid md:grid-cols-12 gap-10">
+          <div className="md:col-span-5">
+            <div className="flex items-center gap-3">
+              <span className="grid h-10 w-10 place-items-center rounded-sm bg-petrol-foreground text-petrol font-serif text-xl">
+                P
+              </span>
+              <div>
+                <p className="font-serif text-2xl">Piraquara On-line</p>
+                <p className="text-[10px] uppercase tracking-[0.22em] opacity-60">
+                  Portal local · Paraná
+                </p>
+              </div>
+            </div>
+            <p className="mt-6 max-w-sm opacity-80 leading-relaxed">
+              Informação local, utilidade pública e cobertura comunitária para quem vive,
+              trabalha e ama Piraquara.
+            </p>
+          </div>
+
+          <div className="md:col-span-2">
+            <p className="text-xs uppercase tracking-[0.18em] opacity-60">Navegação</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><a href="#sobre" className="hover:opacity-100 opacity-80">Sobre</a></li>
+              <li><a href="#lucio" className="hover:opacity-100 opacity-80">Lúcio Renato</a></li>
+              <li><a href="#conteudos" className="hover:opacity-100 opacity-80">Conteúdos</a></li>
+              <li><a href="#utilidade" className="hover:opacity-100 opacity-80">Utilidade</a></li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <p className="text-xs uppercase tracking-[0.18em] opacity-60">Redes</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><a href="#" className="hover:opacity-100 opacity-80">Instagram</a></li>
+              <li><a href="#" className="hover:opacity-100 opacity-80">Facebook</a></li>
+              <li><a href="#" className="hover:opacity-100 opacity-80">YouTube</a></li>
+              <li><a href="#" className="hover:opacity-100 opacity-80">WhatsApp</a></li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-3">
+            <p className="text-xs uppercase tracking-[0.18em] opacity-60">Contato</p>
+            <ul className="mt-4 space-y-2 text-sm opacity-90">
+              <li>contato@piraquaraonline.com.br</li>
+              <li>(41) 99999-0000</li>
+              <li>Piraquara — PR</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-14 pt-6 border-t border-petrol-foreground/15 flex flex-col sm:flex-row gap-3 justify-between text-xs opacity-70">
+          <p>© {new Date().getFullYear()} Piraquara On-line. Todos os direitos reservados.</p>
+          <p>Feito em Piraquara, com orgulho local.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
