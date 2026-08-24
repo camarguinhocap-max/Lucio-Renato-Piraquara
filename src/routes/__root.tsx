@@ -72,18 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Piraquara Conecta is a modern, responsive institutional website for Piraquara On-line, a local communication portal." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Piraquara Conecta is a modern, responsive institutional website for Piraquara On-line, a local communication portal." },
+      { title: "Piraquara On-line — Lúcio Renato" },
+      {
+        name: "description",
+        content:
+          "Portal de comunicação local de Piraquara-PR: notícias, utilidade pública e cobertura comunitária, com Lúcio Renato.",
+      },
+      { name: "author", content: "Lúcio Renato — Piraquara On-line" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { property: "og:site_name", content: "Piraquara On-line" },
+      { property: "og:locale", content: "pt_BR" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Piraquara Conecta is a modern, responsive institutional website for Piraquara On-line, a local communication portal." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/391de14f-bb76-43c5-bdf4-133c2a9b3f0c/id-preview-982b5907--31ba5593-ddb4-4220-93a0-ceb02287c41e.lovable.app-1779313990601.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/391de14f-bb76-43c5-bdf4-133c2a9b3f0c/id-preview-982b5907--31ba5593-ddb4-4220-93a0-ceb02287c41e.lovable.app-1779313990601.png" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
@@ -91,7 +91,46 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "NewsMediaOrganization",
+          "@id": "https://luciorenatopiraquara.com.br/#organization",
+          name: "Piraquara On-line",
+          alternateName: "Lúcio Renato Piraquara",
+          url: "https://luciorenatopiraquara.com.br/",
+          inLanguage: "pt-BR",
+          description:
+            "Portal e canal de comunicação local da cidade de Piraquara, Paraná, com notícias, utilidade pública e cobertura comunitária.",
+          founder: {
+            "@type": "Person",
+            "@id": "https://luciorenatopiraquara.com.br/#lucio-renato",
+            name: "Lúcio Renato",
+            jobTitle: "Comunicador e vereador em Piraquara-PR",
+            worksFor: { "@id": "https://luciorenatopiraquara.com.br/#organization" },
+          },
+          areaServed: [
+            { "@type": "City", name: "Piraquara", addressRegion: "PR", addressCountry: "BR" },
+            { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
+          ],
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Piraquara",
+            addressRegion: "PR",
+            addressCountry: "BR",
+          },
+          contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "redação",
+            availableLanguage: "Portuguese",
+          },
+        }),
+      },
+    ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

@@ -48,13 +48,14 @@ export function Content() {
           </p>
         </div>
 
-        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-border">
+        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {items.map((i) => (
             <li
               key={i.t}
-              className="group p-6 md:p-8 border-b border-border lg:[&:nth-child(3n+1)]:border-l-0 sm:[&:nth-child(2n)]:border-l border-l-0 sm:border-l lg:border-l lg:first:border-l-0 transition-colors hover:bg-accent/40"
+              className="group surface-card p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant"
             >
               <p className="font-mono text-xs text-petrol">{i.n}</p>
+              <span aria-hidden className="mt-3 block h-px w-10 bg-petrol/40 transition-all duration-300 group-hover:w-16" />
               <h3 className="mt-3 font-serif text-2xl md:text-3xl">{i.t}</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{i.d}</p>
             </li>
