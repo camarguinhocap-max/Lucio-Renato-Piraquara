@@ -7,7 +7,7 @@ export function Contact() {
     <section id="contato" className="py-20 md:py-28 border-t border-border">
       <div className="container-editorial grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
-          <p className="eyebrow">07 — Contato</p>
+          <p className="folio">Capítulo 06 — Contato</p>
           <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
             Tem uma pauta, sugestão ou denúncia? Fale com a gente.
           </h2>
@@ -18,16 +18,24 @@ export function Contact() {
 
           <dl className="mt-10 space-y-6 text-sm">
             <div className="border-t border-border pt-4">
-              <dt className="text-xs uppercase tracking-[0.18em] text-muted-foreground">WhatsApp</dt>
+              <dt className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                WhatsApp
+              </dt>
               <dd className="mt-1 font-serif text-2xl text-foreground">(41) 98724-8686</dd>
             </div>
             <div className="border-t border-border pt-4">
               <dt className="text-xs uppercase tracking-[0.18em] text-muted-foreground">E-mail</dt>
-              <dd className="mt-1 font-serif text-2xl text-foreground">contato@piraquaraonline.com.br</dd>
+              <dd className="mt-1 font-serif text-2xl text-foreground">
+                contato@luciorenatopiraquara.com.br
+              </dd>
             </div>
             <div className="border-t border-border pt-4">
-              <dt className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Onde estamos</dt>
-              <dd className="mt-1 font-serif text-2xl text-foreground">Rua Júlio Keques, 76 · Piraquara · PR</dd>
+              <dt className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                Onde estamos
+              </dt>
+              <dd className="mt-1 font-serif text-2xl text-foreground">
+                Rua Júlio Keques, 76 · Piraquara · PR
+              </dd>
             </div>
           </dl>
         </div>

@@ -1,89 +1,92 @@
-import heroImg from "@/assets/piraquara-hero.jpg";
+import heroImg from "@/assets/lucio-kombi.jpg";
 
 export function Hero() {
   return (
-    <section
-      id="top"
-      className="relative pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden"
-    >
-      <div aria-hidden className="absolute inset-0 hairline-grid opacity-60" />
+    <section id="top" className="relative min-h-[100svh] overflow-hidden bg-graphite">
+      <img
+        src={heroImg}
+        alt="Lúcio Renato em frente à Kombi do Piraquara On-line, com o adesivo 'Disque Denúncia' e seu nome"
+        width={1200}
+        height={1600}
+        className="hero-photo absolute inset-0 h-full w-full object-cover object-[50%_18%]"
+      />
+      {/* Scrim: dark on the left for headline legibility, clearing to reveal
+          his face in full color on the right. */}
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 h-[70vh]"
-        style={{ backgroundImage: "var(--gradient-sheen)" }}
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(100deg, oklch(0.17 0.02 250 / 0.96) 0%, oklch(0.17 0.02 250 / 0.9) 32%, oklch(0.17 0.02 250 / 0.55) 55%, transparent 78%)",
+        }}
       />
-      <div className="container-editorial relative">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-end">
-          <div className="lg:col-span-7 rise-in">
-            <div className="flex items-center gap-3 text-xs tracking-[0.22em] uppercase text-muted-foreground mb-8">
-              <span className="h-px w-10 bg-petrol" />
-              <span>Edição diária · Piraquara, Paraná</span>
-            </div>
-            <h1 className="font-serif text-[2.7rem] leading-[1.03] sm:text-6xl lg:text-7xl text-foreground">
-              A cidade contada por
-              <br />
-              <span className="text-petrol italic">quem vive Piraquara</span>
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent"
+      />
+
+      {/* Magazine spine, running the full height of the hero. */}
+      <div
+        aria-hidden
+        className="spine-text absolute left-4 top-28 bottom-24 hidden md:flex items-center justify-center gap-3 text-[11px] tracking-[0.3em] uppercase text-white/50"
+      >
+        <span className="h-8 w-px bg-white/30" />
+        Piraquara On-line
+        <span className="h-8 w-px bg-white/30" />
+      </div>
+
+      <div className="relative z-10 flex min-h-[100svh] flex-col justify-end pt-32 pb-10 md:pb-14">
+        <div className="container-editorial md:pl-16">
+          <div className="max-w-2xl rise-in">
+            <p className="flex items-center gap-3 text-xs tracking-[0.22em] uppercase text-white/70">
+              <span className="h-px w-10 bg-ochre" />
+              Ex-vereador e comunicador · Piraquara, PR
+            </p>
+            <h1 className="mt-6 font-serif text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-[4.5rem] text-white">
+              <span
+                aria-hidden
+                className="quote-mark text-6xl sm:text-7xl align-top mr-1 text-ochre"
+              >
+                “
+              </span>
+              Cobrir Piraquara é, antes de tudo, <span className="italic">ouvir Piraquara</span>
               <span className="text-ochre">.</span>
             </h1>
-            <p className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
-              O Piraquara On-line é o canal de comunicação de <strong className="font-medium text-foreground">Lúcio Renato</strong>:
-              informação local, utilidade pública e cobertura do que acontece nos bairros, nas
-              escolas, nas ruas e nos serviços essenciais da nossa cidade.
+            <p className="mt-6 max-w-lg text-base md:text-lg text-white/75 leading-relaxed">
+              Há mais de 10 anos nas ruas da cidade, Lúcio Renato transformou essa forma de ouvir em
+              um canal: o Piraquara On-line — informação local, utilidade pública e cobertura do que
+              acontece nos bairros, nas escolas e nos serviços essenciais da nossa cidade.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-9 flex flex-wrap gap-3">
               <a
-                href="#contato"
-                className="inline-flex items-center rounded-sm bg-gradient-petrol px-6 py-3.5 text-sm font-medium text-petrol-foreground shadow-elegant hover:opacity-95 transition"
+                href="#lucio"
+                className="inline-flex items-center rounded-sm bg-white px-6 py-3.5 text-sm font-medium text-graphite shadow-elegant hover:opacity-90 transition"
               >
-                Falar com a equipe
+                Conhecer a trajetória
               </a>
               <a
                 href="#conteudos"
-                className="inline-flex items-center rounded-sm border border-foreground/20 px-6 py-3.5 text-sm font-medium text-foreground hover:bg-foreground hover:text-background transition"
+                className="inline-flex items-center rounded-sm border border-white/30 px-6 py-3.5 text-sm font-medium text-white hover:bg-white hover:text-graphite transition"
               >
                 Ver conteúdos →
               </a>
             </div>
-
-            <dl className="mt-14 grid grid-cols-3 gap-6 max-w-lg">
-              {[
-                { k: "+10", v: "anos de cobertura local" },
-                { k: "24/7", v: "olhos abertos pela cidade" },
-                { k: "100%", v: "Piraquara e região" },
-              ].map((s) => (
-                <div key={s.v} className="border-t border-border pt-3">
-                  <dt className="font-serif text-3xl text-foreground">{s.k}</dt>
-                  <dd className="mt-1 text-xs text-muted-foreground leading-snug">{s.v}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
+        </div>
 
-          <div className="lg:col-span-5 relative rise-in">
-            <div
-              aria-hidden
-              className="absolute -inset-3 rounded-sm bg-gradient-petrol opacity-[0.12] blur-xl"
-            />
-            <figure className="relative">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-muted shadow-elegant ring-1 ring-foreground/10">
-                <img
-                  src={heroImg}
-                  alt="Lúcio Renato, fundador do Piraquara On-line, durante pronunciamento em Piraquara, Paraná"
-                  width={1600}
-                  height={1200}
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-petrol/45 via-transparent to-transparent" />
-                <figcaption className="absolute inset-x-0 bottom-0 p-5 text-petrol-foreground">
-                  <p className="text-[10px] uppercase tracking-[0.22em] opacity-80">
-                    Fundador · Comunicador local
-                  </p>
-                  <p className="mt-1 font-serif text-2xl">Lúcio Renato</p>
-                </figcaption>
-              </div>
-            </figure>
-          </div>
+        <div className="container-editorial md:pl-16 mt-14">
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-white/15 pt-4 text-xs uppercase tracking-[0.18em] text-white/55">
+            <span>+10 anos de cobertura local</span>
+            <span aria-hidden className="text-ochre">
+              ·
+            </span>
+            <span>Ex-vereador em Piraquara</span>
+            <span aria-hidden className="text-ochre">
+              ·
+            </span>
+            <span>24/7 nas ruas da cidade</span>
+          </p>
         </div>
       </div>
     </section>

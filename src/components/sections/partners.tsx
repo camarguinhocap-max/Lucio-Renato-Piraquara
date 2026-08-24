@@ -3,14 +3,14 @@ export function Partners() {
     <section id="parceiros" className="py-20 md:py-28 bg-foreground text-background">
       <div className="container-editorial grid lg:grid-cols-12 gap-10 items-center">
         <div className="lg:col-span-7">
-          <p className="text-xs tracking-[0.22em] uppercase opacity-60">06 — Parceiros</p>
+          <p className="text-xs tracking-[0.22em] uppercase opacity-60">Capítulo 05 — Parceiros</p>
           <h2 className="mt-4 font-serif text-4xl md:text-6xl leading-[1.05]">
             Anuncie onde a sua cidade está olhando.
           </h2>
           <p className="mt-6 text-base md:text-lg opacity-80 max-w-xl leading-relaxed">
             Comércios, prestadores de serviço, profissionais liberais e instituições locais
-            encontram no Piraquara On-line um canal direto com o público da cidade. Posts,
-            vídeos, menções em pauta e formatos sob medida.
+            encontram no Piraquara On-line um canal direto com o público da cidade. Posts, vídeos,
+            menções em pauta e formatos sob medida.
           </p>
         </div>
         <div className="lg:col-span-4 lg:col-start-9">

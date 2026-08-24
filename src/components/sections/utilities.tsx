@@ -39,14 +39,14 @@ export function Utilities() {
       <div className="container-editorial">
         <div className="grid lg:grid-cols-12 gap-10 mb-14">
           <div className="lg:col-span-5">
-            <p className="eyebrow">04 — Utilidade pública</p>
+            <p className="folio">Capítulo 03 — Utilidade pública</p>
             <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
               Os contatos que toda família de Piraquara precisa ter à mão.
             </h2>
           </div>
           <p className="lg:col-span-6 lg:col-start-7 text-muted-foreground text-base md:text-lg leading-relaxed self-end">
-            Reunimos numa única página os telefones de emergência, atendimento ao cidadão e
-            serviços essenciais do município. Salve, compartilhe e use sempre que precisar.
+            Reunimos numa única página os telefones de emergência, atendimento ao cidadão e serviços
+            essenciais do município. Salve, compartilhe e use sempre que precisar.
           </p>
         </div>
 
@@ -77,8 +77,7 @@ export function Utilities() {
         </div>
 
         <p className="mt-6 text-xs text-muted-foreground italic">
-          *Os contatos podem sofrer alterações. Em caso de dúvida, confirme com o órgão
-          responsável.
+          *Os contatos podem sofrer alterações. Em caso de dúvida, confirme com o órgão responsável.
         </p>
       </div>
     </section>

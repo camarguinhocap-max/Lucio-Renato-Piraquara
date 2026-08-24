@@ -72,11 +72,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Piraquara On-line — Lúcio Renato" },
+      { title: "Lúcio Renato — Piraquara On-line" },
       {
         name: "description",
         content:
-          "Portal de comunicação local de Piraquara-PR: notícias, utilidade pública e cobertura comunitária, com Lúcio Renato.",
+          "Lúcio Renato, ex-vereador e comunicador de Piraquara-PR: notícias, utilidade pública e cobertura comunitária pelo Piraquara On-line.",
       },
       { name: "author", content: "Lúcio Renato — Piraquara On-line" },
       { name: "robots", content: "index, follow, max-image-preview:large" },

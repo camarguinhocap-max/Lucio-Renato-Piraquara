@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
 const nav = [
-  { href: "#sobre", label: "Sobre" },
-  { href: "#lucio", label: "Lúcio Renato" },
+  { href: "#lucio", label: "Quem é ele" },
   { href: "#conteudos", label: "Conteúdos" },
   { href: "#utilidade", label: "Utilidade Pública" },
+  { href: "#redes", label: "Redes" },
   { href: "#parceiros", label: "Parceiros" },
   { href: "#contato", label: "Contato" },
 ];
@@ -23,9 +23,7 @@ export function SiteHeader() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/85 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
+        scrolled ? "bg-background/85 backdrop-blur-md border-b border-border" : "bg-transparent"
       }`}
     >
       <div className="container-editorial flex h-16 items-center justify-between gap-6 md:h-20">
@@ -34,14 +32,12 @@ export function SiteHeader() {
             aria-hidden
             className="grid h-9 w-9 place-items-center rounded-sm bg-petrol text-petrol-foreground font-serif text-lg leading-none"
           >
-            P
+            LR
           </span>
           <span className="flex flex-col leading-tight">
-            <span className="font-serif text-lg text-foreground">
-              Piraquara <span className="text-petrol">On-line</span>
-            </span>
+            <span className="font-serif text-lg text-foreground">Lúcio Renato</span>
             <span className="text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-              Portal local · PR
+              Piraquara On-line · Portal local
             </span>
           </span>
         </a>

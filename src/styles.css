@@ -224,3 +224,87 @@
 @utility rise-in {
   animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+/* Scroll reveal — driven by the useReveal hook, which toggles [data-revealed].
+   Content is fully visible with JS disabled or motion reduced (see fallbacks below). */
+@utility reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-revealed] .reveal,
+.reveal[data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Newspaper-style running head: a small-caps dateline that credits Lúcio Renato
+   as the byline on every chapter, in place of a generic section eyebrow. */
+@utility folio {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
+.folio::before {
+  content: "";
+  height: 1px;
+  width: 1.75rem;
+  background: var(--color-petrol);
+  flex-shrink: 0;
+}
+
+/* Duotone treatment for reusing the single Lúcio Renato photo across contexts
+   without repeating the same literal crop/color. */
+@utility duotone-petrol {
+  filter: grayscale(1) contrast(1.05);
+  position: relative;
+}
+.duotone-petrol::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, color-mix(in oklab, var(--petrol) 78%, transparent), color-mix(in oklab, var(--ochre) 30%, transparent) 120%);
+  mix-blend-mode: color;
+}
+
+/* Oversized quotation glyph used as the recurring "his voice" motif. */
+@utility quote-mark {
+  font-family: var(--font-serif);
+  font-style: italic;
+  line-height: 0.7;
+  color: var(--color-ochre);
+}
+
+/* One-shot page-load Ken Burns drift on the hero photo — a single orchestrated
+   moment rather than scattered effects. Disabled entirely for reduced motion. */
+@keyframes hero-photo-in {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+@utility hero-photo {
+  animation: hero-photo-in 5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo {
+    animation: none;
+  }
+}
+
+/* Magazine-spine running text along the hero's left edge. */
+@utility spine-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}

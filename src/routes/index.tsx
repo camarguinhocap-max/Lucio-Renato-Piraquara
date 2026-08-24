@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { Hero } from "@/components/sections/hero";
-import { About } from "@/components/sections/about";
 import { Lucio } from "@/components/sections/lucio";
 import { Content } from "@/components/sections/content";
 import { Utilities } from "@/components/sections/utilities";
@@ -11,26 +10,25 @@ import { Contact } from "@/components/sections/contact";
 import { SiteFooter } from "@/components/sections/footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 
-
 const SITE = "https://luciorenatopiraquara.com.br";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Piraquara On-line | Notícias de Piraquara-PR com Lúcio Renato" },
+      { title: "Lúcio Renato | Ex-vereador e comunicador de Piraquara-PR" },
       {
         name: "description",
         content:
-          "Notícias de Piraquara-PR, utilidade pública, denúncias e cobertura comunitária. O portal de Lúcio Renato, há mais de 10 anos nas ruas da cidade.",
+          "Lúcio Renato, ex-vereador e comunicador de Piraquara-PR há mais de 10 anos, apresenta o Piraquara On-line: notícias, utilidade pública e cobertura comunitária.",
       },
       {
         property: "og:title",
-        content: "Piraquara On-line | Notícias de Piraquara-PR com Lúcio Renato",
+        content: "Lúcio Renato | Ex-vereador e comunicador de Piraquara-PR",
       },
       {
         property: "og:description",
         content:
-          "Portal de notícias, utilidade pública e cobertura comunitária de Piraquara, Paraná, com Lúcio Renato.",
+          "Notícias, utilidade pública e cobertura comunitária de Piraquara, Paraná, pelo canal de Lúcio Renato.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE}/` },
@@ -85,7 +83,6 @@ function Index() {
     <main className="min-h-screen bg-background text-foreground">
       <SiteHeader />
       <Hero />
-      <About />
       <Lucio />
       <Content />
       <Utilities />
@@ -97,4 +94,3 @@ function Index() {
     </main>
   );
 }
-
