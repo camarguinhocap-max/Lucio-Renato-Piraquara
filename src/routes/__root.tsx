@@ -108,7 +108,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "@type": "Person",
             "@id": "https://luciorenatopiraquara.com.br/#lucio-renato",
             name: "Lúcio Renato",
-            jobTitle: "Comunicador e vereador em Piraquara-PR",
+            jobTitle: "Comunicador e ex-vereador em Piraquara-PR",
             worksFor: { "@id": "https://luciorenatopiraquara.com.br/#organization" },
           },
           areaServed: [
