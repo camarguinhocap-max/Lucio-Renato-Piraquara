@@ -15,7 +15,12 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
+          { path: "/quem-e-lucio-renato", changefreq: "monthly", priority: "0.9" },
+          { path: "/conteudos", changefreq: "weekly", priority: "0.7" },
+          { path: "/utilidade-publica", changefreq: "monthly", priority: "0.7" },
+          { path: "/redes", changefreq: "monthly", priority: "0.6" },
           { path: "/parceiros", changefreq: "monthly", priority: "0.6" },
+          { path: "/contato", changefreq: "monthly", priority: "0.6" },
         ];
 
         const urls = entries.map((e) =>

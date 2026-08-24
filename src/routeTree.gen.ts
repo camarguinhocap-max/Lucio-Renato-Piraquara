@@ -10,12 +10,27 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as ConteudosRouteImport } from './routes/conteudos'
 import { Route as ParceirosRouteImport } from './routes/parceiros'
+import { Route as QuemELucioRenatoRouteImport } from './routes/quem-e-lucio-renato'
+import { Route as RedesRouteImport } from './routes/redes'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as UtilidadePublicaRouteImport } from './routes/utilidade-publica'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConteudosRoute = ConteudosRouteImport.update({
+  id: '/conteudos',
+  path: '/conteudos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ParceirosRoute = ParceirosRouteImport.update({
@@ -23,40 +38,100 @@ const ParceirosRoute = ParceirosRouteImport.update({
   path: '/parceiros',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuemELucioRenatoRoute = QuemELucioRenatoRouteImport.update({
+  id: '/quem-e-lucio-renato',
+  path: '/quem-e-lucio-renato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RedesRoute = RedesRouteImport.update({
+  id: '/redes',
+  path: '/redes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UtilidadePublicaRoute = UtilidadePublicaRouteImport.update({
+  id: '/utilidade-publica',
+  path: '/utilidade-publica',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/conteudos': typeof ConteudosRoute
   '/parceiros': typeof ParceirosRoute
+  '/quem-e-lucio-renato': typeof QuemELucioRenatoRoute
+  '/redes': typeof RedesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/utilidade-publica': typeof UtilidadePublicaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/conteudos': typeof ConteudosRoute
   '/parceiros': typeof ParceirosRoute
+  '/quem-e-lucio-renato': typeof QuemELucioRenatoRoute
+  '/redes': typeof RedesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/utilidade-publica': typeof UtilidadePublicaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/conteudos': typeof ConteudosRoute
   '/parceiros': typeof ParceirosRoute
+  '/quem-e-lucio-renato': typeof QuemELucioRenatoRoute
+  '/redes': typeof RedesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/utilidade-publica': typeof UtilidadePublicaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/parceiros' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/contato'
+    | '/conteudos'
+    | '/parceiros'
+    | '/quem-e-lucio-renato'
+    | '/redes'
+    | '/sitemap.xml'
+    | '/utilidade-publica'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/parceiros' | '/sitemap.xml'
-  id: '__root__' | '/' | '/parceiros' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/contato'
+    | '/conteudos'
+    | '/parceiros'
+    | '/quem-e-lucio-renato'
+    | '/redes'
+    | '/sitemap.xml'
+    | '/utilidade-publica'
+  id:
+    | '__root__'
+    | '/'
+    | '/contato'
+    | '/conteudos'
+    | '/parceiros'
+    | '/quem-e-lucio-renato'
+    | '/redes'
+    | '/sitemap.xml'
+    | '/utilidade-publica'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContatoRoute: typeof ContatoRoute
+  ConteudosRoute: typeof ConteudosRoute
   ParceirosRoute: typeof ParceirosRoute
+  QuemELucioRenatoRoute: typeof QuemELucioRenatoRoute
+  RedesRoute: typeof RedesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  UtilidadePublicaRoute: typeof UtilidadePublicaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,11 +143,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conteudos': {
+      id: '/conteudos'
+      path: '/conteudos'
+      fullPath: '/conteudos'
+      preLoaderRoute: typeof ConteudosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/parceiros': {
       id: '/parceiros'
       path: '/parceiros'
       fullPath: '/parceiros'
       preLoaderRoute: typeof ParceirosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quem-e-lucio-renato': {
+      id: '/quem-e-lucio-renato'
+      path: '/quem-e-lucio-renato'
+      fullPath: '/quem-e-lucio-renato'
+      preLoaderRoute: typeof QuemELucioRenatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/redes': {
+      id: '/redes'
+      path: '/redes'
+      fullPath: '/redes'
+      preLoaderRoute: typeof RedesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -82,13 +185,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/utilidade-publica': {
+      id: '/utilidade-publica'
+      path: '/utilidade-publica'
+      fullPath: '/utilidade-publica'
+      preLoaderRoute: typeof UtilidadePublicaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContatoRoute: ContatoRoute,
+  ConteudosRoute: ConteudosRoute,
   ParceirosRoute: ParceirosRoute,
+  QuemELucioRenatoRoute: QuemELucioRenatoRoute,
+  RedesRoute: RedesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  UtilidadePublicaRoute: UtilidadePublicaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
