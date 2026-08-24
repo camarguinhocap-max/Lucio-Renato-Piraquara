@@ -5,7 +5,11 @@ import altonia from "@/assets/partner-altonia.jpeg";
 const logos = [
   { src: fioearoma, alt: "Fio e Aroma", href: "https://fioearoma.com.br" },
   { src: sunnesul, alt: "Sunne Sul", href: "https://sunnesul.com.br" },
-  { src: altonia, alt: "Distribuidora Altônia", href: "https://www.instagram.com/altonia.distribuidora" },
+  {
+    src: altonia,
+    alt: "Distribuidora Altônia",
+    href: "https://www.instagram.com/altonia.distribuidora",
+  },
 ];
 
 export function Partners() {

@@ -1,4 +1,4 @@
-import heroImg from "@/assets/lucio-kombi.jpg";
+import heroImg from "@/assets/lucio-kombi-2.jpg";
 
 export function Hero() {
   return (
