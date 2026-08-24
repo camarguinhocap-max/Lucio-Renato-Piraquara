@@ -63,36 +63,49 @@ export function Lucio() {
         <div className="reveal lg:col-span-6 lg:col-start-7" style={{ transitionDelay: "120ms" }}>
           <p className="text-xs tracking-[0.22em] uppercase opacity-70">Capítulo 01 — Quem é ele</p>
           <h2 className="mt-4 font-serif text-4xl md:text-6xl leading-[1.05]">
-            De vereador a comunicador, sem nunca sair das ruas de Piraquara.
+            Lúcio Renato: uma vida a serviço de Piraquara.
           </h2>
 
           <div className="mt-8 space-y-5 text-base md:text-lg leading-relaxed opacity-90">
             <p>
-              Lúcio Renato é o fundador e rosto do Piraquara On-line. Ex-vereador, morador e
-              defensor da cidade, ele construiu ao longo de mais de uma década um canal reconhecido
-              pela presença constante nas ruas, pelos vídeos que circulam diariamente e pelo
-              compromisso com a informação de utilidade pública.
+              Nascido em Centenário do Sul, no Paraná, Lúcio Renato construiu em Piraquara a
+              cidade que escolheu para viver, criar sua família e dedicar a vida pública. Foram 28
+              anos como comerciante — tempo suficiente para conhecer cada rua, cada bairro e,
+              principalmente, cada necessidade real de quem vive na cidade. É desse contato
+              direto com o povo, no balcão do dia a dia, que nasceu o Lúcio que muitos conhecem
+              hoje: acessível, presente e disposto a ouvir antes de agir.
             </p>
             <p>
-              Mais do que um veículo de notícias, o Piraquara On-line é uma extensão da forma como
-              ele entende a comunicação local: próxima, humana e a serviço da comunidade — a pauta
-              começa na esquina, no posto de saúde, na escola do bairro, e termina na tela de quem
-              precisa de informação confiável.
+              Desde 1997, sua trajetória se confunde com a própria história política de
+              Piraquara. Como ex-vereador, levou para dentro do poder público a mesma
+              proximidade que sempre teve nas ruas — sem perder a essência de quem nunca deixou
+              de ser, antes de tudo, morador e comerciante da cidade.
+            </p>
+            <p>
+              Pai de 7 filhos, Lúcio faz da família o alicerce que sustenta seu compromisso
+              público. É esse mesmo cuidado — de quem sabe o que é lutar por quem se ama — que ele
+              carrega para cada bandeira levantada em nome de Piraquara: mais estrutura, mais
+              atenção aos bairros esquecidos, mais voz para quem raramente é ouvido.
+            </p>
+            <p>
+              Hoje, à frente do Piraquara On-line, Lúcio segue fazendo o que sempre soube fazer
+              melhor: estar perto, informar com verdade e lutar por uma cidade que ele ajudou a
+              construir — e que ainda tem muito a crescer.
             </p>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4 text-sm">
             <div>
-              <p className="font-serif text-2xl">10+</p>
-              <p className="opacity-70">anos cobrindo a cidade</p>
+              <p className="font-serif text-2xl">28 anos</p>
+              <p className="opacity-70">como comerciante em Piraquara</p>
             </div>
             <div>
-              <p className="font-serif text-2xl">Milhares</p>
-              <p className="opacity-70">de moradores impactados</p>
+              <p className="font-serif text-2xl">Desde 1997</p>
+              <p className="opacity-70">na vida pública da cidade</p>
             </div>
             <div>
-              <p className="font-serif text-2xl">Diário</p>
-              <p className="opacity-70">presença nas redes</p>
+              <p className="font-serif text-2xl">7 filhos</p>
+              <p className="opacity-70">a família que é seu alicerce</p>
             </div>
           </div>
 
