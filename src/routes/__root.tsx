@@ -108,9 +108,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "@type": "Person",
             "@id": "https://luciorenatopiraquara.com.br/#lucio-renato",
             name: "Lúcio Renato",
+            alternateName: "Lúcio Renato Piraquara",
             jobTitle: "Comunicador e ex-vereador em Piraquara-PR",
             worksFor: { "@id": "https://luciorenatopiraquara.com.br/#organization" },
+            sameAs: ["https://www.facebook.com/profile.php?id=61592683896175"],
           },
+          sameAs: ["https://www.facebook.com/profile.php?id=61592683896175"],
           areaServed: [
             { "@type": "City", name: "Piraquara", addressRegion: "PR", addressCountry: "BR" },
             { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },

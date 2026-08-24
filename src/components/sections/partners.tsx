@@ -5,7 +5,7 @@ import altonia from "@/assets/partner-altonia.jpeg";
 const logos = [
   { src: fioearoma, alt: "Fio e Aroma", href: "https://fioearoma.com.br" },
   { src: sunnesul, alt: "Sunne Sul", href: "https://sunnesul.com.br" },
-  { src: altonia, alt: "Distribuidora Altônia", href: undefined },
+  { src: altonia, alt: "Distribuidora Altônia", href: "https://www.instagram.com/altonia.distribuidora" },
 ];
 
 export function Partners() {
@@ -35,7 +35,7 @@ export function Partners() {
                   href={l.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Visitar o site de ${l.alt}`}
+                  aria-label={`Visitar ${l.alt}`}
                   className={`${cardClass} hover:scale-[1.03]`}
                 >
                   {img}

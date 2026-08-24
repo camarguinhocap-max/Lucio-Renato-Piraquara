@@ -28,7 +28,7 @@ const partners = [
     name: "Distribuidora Altônia",
     tagline: "Gás e bebidas · desde 2016",
     desc: "Distribuidora de gás e bebidas atendendo Piraquara desde 2016.",
-    href: undefined as string | undefined,
+    href: "https://www.instagram.com/altonia.distribuidora" as string | undefined,
   },
 ];
 
@@ -84,7 +84,7 @@ function ParceirosPage() {
                   rel="noopener noreferrer"
                   className="mt-6 inline-flex items-center text-sm font-medium text-petrol transition hover:opacity-80"
                 >
-                  Visitar site →
+                  {p.href.includes("instagram.com") ? "Ver no Instagram →" : "Visitar site →"}
                 </a>
               )}
             </article>

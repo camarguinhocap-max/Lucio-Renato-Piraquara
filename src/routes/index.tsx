@@ -64,11 +64,13 @@ export const Route = createFileRoute("/")({
               "@type": "Person",
               "@id": `${SITE}/#lucio-renato`,
               name: "Lúcio Renato",
+              alternateName: "Lúcio Renato Piraquara",
               jobTitle: "Comunicador e ex-vereador em Piraquara-PR",
               description:
                 "Fundador do Piraquara On-line, comunicador local com mais de 10 anos de cobertura em Piraquara, Paraná.",
               homeLocation: { "@type": "City", name: "Piraquara, PR, Brasil" },
               affiliation: { "@id": `${SITE}/#organization` },
+              sameAs: ["https://www.facebook.com/profile.php?id=61592683896175"],
             },
           ],
         }),
