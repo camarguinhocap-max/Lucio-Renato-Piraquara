@@ -35,16 +35,32 @@ export function SiteHeader() {
             LR
           </span>
           <span className="flex flex-col leading-tight">
-            <span className="font-serif text-lg text-foreground">Lúcio Renato</span>
-            <span className="text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
+            <span
+              className={`font-serif text-lg transition-colors ${scrolled ? "text-foreground" : "text-white"}`}
+            >
+              Lúcio Renato
+            </span>
+            <span
+              className={`text-[10px] tracking-[0.22em] uppercase transition-colors ${
+                scrolled ? "text-muted-foreground" : "text-white/70"
+              }`}
+            >
               Piraquara On-line · Portal local
             </span>
           </span>
         </a>
 
-        <nav className="hidden lg:flex items-center gap-8 text-sm text-foreground/80">
+        <nav
+          className={`hidden lg:flex items-center gap-8 text-sm transition-colors ${
+            scrolled ? "text-foreground/80" : "text-white/85"
+          }`}
+        >
           {nav.map((n) => (
-            <a key={n.href} href={n.href} className="hover:text-foreground transition-colors">
+            <a
+              key={n.href}
+              href={n.href}
+              className={`transition-colors ${scrolled ? "hover:text-foreground" : "hover:text-white"}`}
+            >
               {n.label}
             </a>
           ))}
@@ -60,12 +76,18 @@ export function SiteHeader() {
           <button
             aria-label="Abrir menu"
             onClick={() => setOpen((v) => !v)}
-            className="lg:hidden inline-grid h-10 w-10 place-items-center rounded-sm border border-border"
+            className={`lg:hidden inline-grid h-10 w-10 place-items-center rounded-sm border transition-colors ${
+              scrolled ? "border-border" : "border-white/40"
+            }`}
           >
             <span className="sr-only">Menu</span>
             <div className="flex flex-col gap-1.5">
-              <span className="block h-px w-5 bg-foreground" />
-              <span className="block h-px w-5 bg-foreground" />
+              <span
+                className={`block h-px w-5 transition-colors ${scrolled ? "bg-foreground" : "bg-white"}`}
+              />
+              <span
+                className={`block h-px w-5 transition-colors ${scrolled ? "bg-foreground" : "bg-white"}`}
+              />
             </div>
           </button>
         </div>
