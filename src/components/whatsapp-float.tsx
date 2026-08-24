@@ -1,7 +1,7 @@
 export function WhatsAppFloat() {
   return (
     <a
-      href="https://wa.me/5541999990000"
+      href="https://wa.me/5541987248686"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar com o Piraquara On-line no WhatsApp"
