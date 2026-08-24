@@ -1,16 +1,28 @@
 const channels = [
-  { name: "Instagram", handle: "@piraquaraonline", desc: "Reels, bastidores e cobertura ao vivo." },
+  {
+    name: "Instagram",
+    handle: "@piraquaraonline",
+    desc: "Reels, bastidores e cobertura ao vivo.",
+    href: "#",
+  },
   {
     name: "Facebook",
     handle: "/piraquaraonline",
     desc: "Notícias, debates e a comunidade reunida.",
+    href: "https://www.facebook.com/profile.php?id=61592683896175",
   },
   {
     name: "YouTube",
     handle: "/piraquaraonline",
     desc: "Reportagens em vídeo e entrevistas locais.",
+    href: "#",
   },
-  { name: "WhatsApp", handle: "Canal oficial", desc: "Alertas, utilidade pública e plantão." },
+  {
+    name: "WhatsApp",
+    handle: "Canal oficial",
+    desc: "Alertas, utilidade pública e plantão.",
+    href: "https://wa.me/5541987248686",
+  },
 ];
 
 export function Social() {
@@ -34,7 +46,9 @@ export function Social() {
           {channels.map((c) => (
             <a
               key={c.name}
-              href="#"
+              href={c.href}
+              target={c.href !== "#" ? "_blank" : undefined}
+              rel={c.href !== "#" ? "noopener noreferrer" : undefined}
               className="group flex flex-col justify-between rounded-sm border border-border p-6 min-h-44 hover:border-petrol transition-colors"
             >
               <div>

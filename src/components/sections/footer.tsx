@@ -56,7 +56,12 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:opacity-100 opacity-80">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61592683896175"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-100 opacity-80"
+                >
                   Facebook
                 </a>
               </li>
@@ -66,7 +71,12 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:opacity-100 opacity-80">
+                <a
+                  href="https://wa.me/5541987248686"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-100 opacity-80"
+                >
                   WhatsApp
                 </a>
               </li>

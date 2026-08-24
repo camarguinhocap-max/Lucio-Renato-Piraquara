@@ -330,3 +330,6 @@
     animation: none;
   }
 }
+.marquee-viewport:hover .marquee-track {
+  animation-play-state: paused;
+}

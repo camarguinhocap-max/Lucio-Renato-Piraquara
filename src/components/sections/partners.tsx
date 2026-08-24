@@ -3,9 +3,9 @@ import sunnesul from "@/assets/partner-sunnesul.webp";
 import altonia from "@/assets/partner-altonia.jpeg";
 
 const logos = [
-  { src: fioearoma, alt: "Fio e Aroma" },
-  { src: sunnesul, alt: "Sunne Sul" },
-  { src: altonia, alt: "Distribuidora Altônia" },
+  { src: fioearoma, alt: "Fio e Aroma", href: "https://fioearoma.com.br" },
+  { src: sunnesul, alt: "Sunne Sul", href: "https://sunnesul.com.br" },
+  { src: altonia, alt: "Distribuidora Altônia", href: undefined },
 ];
 
 export function Partners() {
@@ -15,14 +15,29 @@ export function Partners() {
         <p className="text-xs tracking-[0.22em] uppercase opacity-60">Já são nossos parceiros</p>
         <div className="marquee-viewport mt-6 mb-16">
           <div className="marquee-track gap-6">
-            {[...logos, ...logos].map((l, i) => (
-              <div
-                key={`${l.alt}-${i}`}
-                className="flex h-20 w-40 flex-none items-center justify-center rounded-sm bg-background p-4 sm:h-24 sm:w-48"
-              >
+            {[...logos, ...logos].map((l, i) => {
+              const cardClass =
+                "flex h-20 w-40 flex-none items-center justify-center rounded-sm bg-background p-4 transition-transform sm:h-24 sm:w-48";
+              const img = (
                 <img src={l.src} alt={l.alt} className="max-h-full max-w-full object-contain" />
-              </div>
-            ))}
+              );
+              return l.href ? (
+                <a
+                  key={`${l.alt}-${i}`}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visitar o site de ${l.alt}`}
+                  className={`${cardClass} hover:scale-[1.03]`}
+                >
+                  {img}
+                </a>
+              ) : (
+                <div key={`${l.alt}-${i}`} className={cardClass}>
+                  {img}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

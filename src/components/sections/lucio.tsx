@@ -68,24 +68,24 @@ export function Lucio() {
 
           <div className="mt-8 space-y-5 text-base md:text-lg leading-relaxed opacity-90">
             <p>
-              Nascido em Centenário do Sul, no Paraná, Lúcio Renato construiu em Piraquara a
-              cidade que escolheu para viver, criar sua família e dedicar a vida pública. Foram 28
-              anos como comerciante — tempo suficiente para conhecer cada rua, cada bairro e,
-              principalmente, cada necessidade real de quem vive na cidade. É desse contato
-              direto com o povo, no balcão do dia a dia, que nasceu o Lúcio que muitos conhecem
-              hoje: acessível, presente e disposto a ouvir antes de agir.
+              Nascido em Centenário do Sul, no Paraná, Lúcio Renato construiu em Piraquara a cidade
+              que escolheu para viver, criar sua família e dedicar a vida pública. Foram 28 anos
+              como comerciante — tempo suficiente para conhecer cada rua, cada bairro e,
+              principalmente, cada necessidade real de quem vive na cidade. É desse contato direto
+              com o povo, no balcão do dia a dia, que nasceu o Lúcio que muitos conhecem hoje:
+              acessível, presente e disposto a ouvir antes de agir.
             </p>
             <p>
-              Desde 1997, sua trajetória se confunde com a própria história política de
-              Piraquara. Como ex-vereador, levou para dentro do poder público a mesma
-              proximidade que sempre teve nas ruas — sem perder a essência de quem nunca deixou
-              de ser, antes de tudo, morador e comerciante da cidade.
+              Desde 1997, sua trajetória se confunde com a própria história política de Piraquara.
+              Como ex-vereador, levou para dentro do poder público a mesma proximidade que sempre
+              teve nas ruas — sem perder a essência de quem nunca deixou de ser, antes de tudo,
+              morador e comerciante da cidade.
             </p>
             <p>
-              Pai de 7 filhos, Lúcio faz da família o alicerce que sustenta seu compromisso
-              público. É esse mesmo cuidado — de quem sabe o que é lutar por quem se ama — que ele
-              carrega para cada bandeira levantada em nome de Piraquara: mais estrutura, mais
-              atenção aos bairros esquecidos, mais voz para quem raramente é ouvido.
+              Pai de 7 filhos, Lúcio faz da família o alicerce que sustenta seu compromisso público.
+              É esse mesmo cuidado — de quem sabe o que é lutar por quem se ama — que ele carrega
+              para cada bandeira levantada em nome de Piraquara: mais estrutura, mais atenção aos
+              bairros esquecidos, mais voz para quem raramente é ouvido.
             </p>
             <p>
               Hoje, à frente do Piraquara On-line, Lúcio segue fazendo o que sempre soube fazer
