@@ -2,36 +2,45 @@ import heroImg from "@/assets/piraquara-hero.jpg";
 
 export function Hero() {
   return (
-    <section id="top" className="relative pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden">
-      <div className="container-editorial">
+    <section
+      id="top"
+      className="relative pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden"
+    >
+      <div aria-hidden className="absolute inset-0 hairline-grid opacity-60" />
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-[70vh]"
+        style={{ backgroundImage: "var(--gradient-sheen)" }}
+      />
+      <div className="container-editorial relative">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-end">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 rise-in">
             <div className="flex items-center gap-3 text-xs tracking-[0.22em] uppercase text-muted-foreground mb-8">
               <span className="h-px w-10 bg-petrol" />
               <span>Edição diária · Piraquara, Paraná</span>
             </div>
-            <h1 className="font-serif text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-7xl text-foreground">
+            <h1 className="font-serif text-[2.7rem] leading-[1.03] sm:text-6xl lg:text-7xl text-foreground">
               A cidade contada por
               <br />
               <span className="text-petrol italic">quem vive Piraquara</span>
               <span className="text-ochre">.</span>
             </h1>
             <p className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
-              O Piraquara On-line é um canal de comunicação dedicado à informação local, à
-              utilidade pública e à cobertura do que acontece nos bairros, nas escolas, nas ruas
-              e nos serviços essenciais da nossa cidade.
+              O Piraquara On-line é o canal de comunicação de <strong className="font-medium text-foreground">Lúcio Renato</strong>:
+              informação local, utilidade pública e cobertura do que acontece nos bairros, nas
+              escolas, nas ruas e nos serviços essenciais da nossa cidade.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
               <a
                 href="#contato"
-                className="inline-flex items-center rounded-sm bg-petrol px-6 py-3.5 text-sm font-medium text-petrol-foreground hover:opacity-90 transition"
+                className="inline-flex items-center rounded-sm bg-gradient-petrol px-6 py-3.5 text-sm font-medium text-petrol-foreground shadow-elegant hover:opacity-95 transition"
               >
                 Falar com a equipe
               </a>
               <a
                 href="#conteudos"
-                className="inline-flex items-center rounded-sm border border-foreground/25 px-6 py-3.5 text-sm font-medium text-foreground hover:bg-foreground hover:text-background transition"
+                className="inline-flex items-center rounded-sm border border-foreground/20 px-6 py-3.5 text-sm font-medium text-foreground hover:bg-foreground hover:text-background transition"
               >
                 Ver conteúdos →
               </a>
@@ -51,20 +60,29 @@ export function Hero() {
             </dl>
           </div>
 
-          <div className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-muted">
-              <img
-                src={heroImg}
-                alt="Vista aérea de Piraquara, Paraná, com a Serra do Mar ao fundo"
-                width={1600}
-                height={1200}
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-petrol/40 via-transparent to-transparent" />
-            </div>
-            <figcaption className="mt-3 text-xs text-muted-foreground italic">
-              Piraquara vista ao amanhecer — entre a Serra e os mananciais.
-            </figcaption>
+          <div className="lg:col-span-5 relative rise-in">
+            <div
+              aria-hidden
+              className="absolute -inset-3 rounded-sm bg-gradient-petrol opacity-[0.12] blur-xl"
+            />
+            <figure className="relative">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-muted shadow-elegant ring-1 ring-foreground/10">
+                <img
+                  src={heroImg}
+                  alt="Lúcio Renato, fundador do Piraquara On-line, durante pronunciamento em Piraquara, Paraná"
+                  width={1600}
+                  height={1200}
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-petrol/45 via-transparent to-transparent" />
+                <figcaption className="absolute inset-x-0 bottom-0 p-5 text-petrol-foreground">
+                  <p className="text-[10px] uppercase tracking-[0.22em] opacity-80">
+                    Fundador · Comunicador local
+                  </p>
+                  <p className="mt-1 font-serif text-2xl">Lúcio Renato</p>
+                </figcaption>
+              </div>
+            </figure>
           </div>
         </div>
       </div>
