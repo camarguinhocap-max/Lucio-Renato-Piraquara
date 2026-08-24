@@ -1,6 +1,32 @@
+import fioearoma from "@/assets/partner-fioearoma.jpg";
+import sunnesul from "@/assets/partner-sunnesul.webp";
+import altonia from "@/assets/partner-altonia.jpeg";
+
+const logos = [
+  { src: fioearoma, alt: "Fio e Aroma" },
+  { src: sunnesul, alt: "Sunne Sul" },
+  { src: altonia, alt: "Distribuidora Altônia" },
+];
+
 export function Partners() {
   return (
     <section id="parceiros" className="py-20 md:py-28 bg-foreground text-background">
+      <div className="container-editorial">
+        <p className="text-xs tracking-[0.22em] uppercase opacity-60">Já são nossos parceiros</p>
+        <div className="marquee-viewport mt-6 mb-16">
+          <div className="marquee-track gap-6">
+            {[...logos, ...logos].map((l, i) => (
+              <div
+                key={`${l.alt}-${i}`}
+                className="flex h-20 w-40 flex-none items-center justify-center rounded-sm bg-background p-4 sm:h-24 sm:w-48"
+              >
+                <img src={l.src} alt={l.alt} className="max-h-full max-w-full object-contain" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="container-editorial grid lg:grid-cols-12 gap-10 items-center">
         <div className="lg:col-span-7">
           <p className="text-xs tracking-[0.22em] uppercase opacity-60">Capítulo 05 — Parceiros</p>
