@@ -11,18 +11,24 @@ export function Hero() {
         className="hero-photo absolute inset-0 h-full w-full object-cover object-[50%_18%]"
       />
       {/* Scrim: dark on the left for headline legibility, clearing to reveal
-          his face in full color on the right. */}
+          his face in full color on the right. Desktop-only — on mobile the
+          crop is tighter and this horizontal fade doesn't reliably darken
+          the text area, so mobile relies on the taller bottom scrim below. */}
       <div
         aria-hidden
-        className="absolute inset-0"
+        className="absolute inset-0 hidden md:block"
         style={{
           background:
             "linear-gradient(100deg, oklch(0.17 0.02 250 / 0.96) 0%, oklch(0.17 0.02 250 / 0.9) 32%, oklch(0.17 0.02 250 / 0.55) 55%, transparent 78%)",
         }}
       />
+      {/* Bottom scrim: tall and strong on mobile, since the headline wraps
+          to more lines there and sits over whatever the photo has behind
+          it (including a white shirt) — shorter on desktop, where the
+          horizontal scrim above already does most of the work. */}
       <div
         aria-hidden
-        className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent"
+        className="absolute inset-x-0 bottom-0 h-[80%] bg-gradient-to-t from-black/95 via-black/60 to-transparent md:h-40 md:from-black/60 md:via-transparent"
       />
 
       {/* Magazine spine, running the full height of the hero. */}
