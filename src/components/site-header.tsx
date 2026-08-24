@@ -5,7 +5,7 @@ const nav = [
   { href: "#conteudos", label: "Conteúdos" },
   { href: "#utilidade", label: "Utilidade Pública" },
   { href: "#redes", label: "Redes" },
-  { href: "#parceiros", label: "Parceiros" },
+  { href: "/parceiros", label: "Parceiros" },
   { href: "#contato", label: "Contato" },
 ];
 

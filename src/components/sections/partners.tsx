@@ -3,12 +3,13 @@ import sunnesul from "@/assets/partner-sunnesul.webp";
 import altonia from "@/assets/partner-altonia.jpeg";
 
 const logos = [
-  { src: fioearoma, alt: "Fio e Aroma", href: "https://fioearoma.com.br" },
-  { src: sunnesul, alt: "Sunne Sul", href: "https://sunnesul.com.br" },
+  { src: fioearoma, alt: "Fio e Aroma", href: "https://fioearoma.com.br", size: "square" as const },
+  { src: sunnesul, alt: "Sunne Sul", href: "https://sunnesul.com.br", size: "wide" as const },
   {
     src: altonia,
     alt: "Distribuidora Altônia",
     href: "https://www.instagram.com/altonia.distribuidora",
+    size: "square" as const,
   },
 ];
 
@@ -29,7 +30,9 @@ export function Partners() {
           <div className="marquee-track gap-6">
             {[...logos, ...logos].map((l, i) => {
               const cardClass =
-                "flex h-20 w-40 flex-none items-center justify-center rounded-sm bg-background p-4 transition-transform sm:h-24 sm:w-48";
+                l.size === "square"
+                  ? "flex h-24 w-24 flex-none items-center justify-center rounded-sm bg-background p-2.5 transition-transform sm:h-32 sm:w-32"
+                  : "flex h-20 w-40 flex-none items-center justify-center rounded-sm bg-background p-4 transition-transform sm:h-24 sm:w-48";
               const img = (
                 <img src={l.src} alt={l.alt} className="max-h-full max-w-full object-contain" />
               );
