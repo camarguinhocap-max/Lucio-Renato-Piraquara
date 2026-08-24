@@ -45,8 +45,8 @@ export function SiteFooter() {
             <p className="text-xs uppercase tracking-[0.18em] opacity-60">Contato</p>
             <ul className="mt-4 space-y-2 text-sm opacity-90">
               <li>contato@piraquaraonline.com.br</li>
-              <li>(41) 99999-0000</li>
-              <li>Piraquara — PR</li>
+              <li>(41) 98724-8686</li>
+              <li>Rua Júlio Keques, 76 — Piraquara, PR</li>
             </ul>
           </div>
         </div>
