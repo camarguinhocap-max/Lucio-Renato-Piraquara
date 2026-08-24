@@ -5,6 +5,7 @@ import { WhatsAppFloat } from "@/components/whatsapp-float";
 import fioearoma from "@/assets/partner-fioearoma.jpg";
 import sunnesul from "@/assets/partner-sunnesul.webp";
 import altonia from "@/assets/partner-altonia.jpeg";
+import dividai from "@/assets/partner-dividai.png";
 
 const SITE = "https://luciorenatopiraquara.com.br";
 
@@ -29,6 +30,13 @@ const partners = [
     tagline: "Gás e bebidas · desde 2016",
     desc: "Distribuidora de gás e bebidas atendendo Piraquara desde 2016.",
     href: "https://www.instagram.com/altonia.distribuidora" as string | undefined,
+  },
+  {
+    logo: dividai,
+    name: "DividAI",
+    tagline: "Criação de sites & landing pages",
+    desc: "Agência responsável pelo desenvolvimento deste site. Cria sites, landing pages e presença digital rápidos, modernos e otimizados para atrair e converter clientes.",
+    href: "https://dividai.com" as string | undefined,
   },
 ];
 
@@ -68,7 +76,7 @@ function ParceirosPage() {
       </section>
 
       <section className="py-16 md:py-24">
-        <div className="container-editorial grid gap-8 md:grid-cols-3">
+        <div className="container-editorial grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {partners.map((p) => (
             <article key={p.name} className="surface-card flex flex-col p-6">
               <div className="flex h-28 items-center justify-center rounded-sm bg-paper p-4">

@@ -1,6 +1,7 @@
 import fioearoma from "@/assets/partner-fioearoma.jpg";
 import sunnesul from "@/assets/partner-sunnesul.webp";
 import altonia from "@/assets/partner-altonia.jpeg";
+import dividai from "@/assets/partner-dividai.png";
 
 const logos = [
   { src: fioearoma, alt: "Fio e Aroma", href: "https://fioearoma.com.br", size: "square" as const },
@@ -11,6 +12,7 @@ const logos = [
     href: "https://www.instagram.com/altonia.distribuidora",
     size: "square" as const,
   },
+  { src: dividai, alt: "DividAI", href: "https://dividai.com", size: "square" as const },
 ];
 
 export function Partners() {
