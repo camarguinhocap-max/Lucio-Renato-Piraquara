@@ -1,4 +1,4 @@
-import heroImg from "@/assets/lucio-kombi-3.jpg";
+import heroImg from "@/assets/lucio-kombi-4.jpg";
 
 export function Hero() {
   return (
@@ -6,9 +6,9 @@ export function Hero() {
       <img
         src={heroImg}
         alt="Lúcio Renato em frente à Kombi do Piraquara On-line, com o adesivo 'Disque Denúncia' e seu nome"
-        width={2397}
-        height={1647}
-        className="hero-photo absolute inset-0 h-full w-full object-cover object-[62%_15%]"
+        width={1200}
+        height={857}
+        className="hero-photo absolute inset-0 h-full w-full object-cover object-[61%_18%]"
       />
       {/* Scrim: dark on the left for headline legibility, clearing to reveal
           his face in full color on the right. Desktop-only — on mobile the
