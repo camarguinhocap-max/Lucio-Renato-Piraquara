@@ -12,7 +12,15 @@ export function Partners() {
   return (
     <section id="parceiros" className="py-20 md:py-28 bg-foreground text-background">
       <div className="container-editorial">
-        <p className="text-xs tracking-[0.22em] uppercase opacity-60">Já são nossos parceiros</p>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <p className="text-xs tracking-[0.22em] uppercase opacity-60">Já são nossos parceiros</p>
+          <a
+            href="/parceiros"
+            className="text-xs font-medium uppercase tracking-[0.18em] text-background/80 hover:text-background transition"
+          >
+            Conhecer os parceiros →
+          </a>
+        </div>
         <div className="marquee-viewport mt-6 mb-16">
           <div className="marquee-track gap-6">
             {[...logos, ...logos].map((l, i) => {

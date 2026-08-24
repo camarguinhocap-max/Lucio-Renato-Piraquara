@@ -44,6 +44,11 @@ export function SiteFooter() {
                   Redes
                 </a>
               </li>
+              <li>
+                <a href="/parceiros" className="hover:opacity-100 opacity-80">
+                  Parceiros
+                </a>
+              </li>
             </ul>
           </div>
 
