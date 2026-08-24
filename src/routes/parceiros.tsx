@@ -36,7 +36,7 @@ const partners = [
     name: "DividAI",
     tagline: "Criação de sites & landing pages",
     desc: "Agência responsável pelo desenvolvimento deste site. Cria sites, landing pages e presença digital rápidos, modernos e otimizados para atrair e converter clientes.",
-    href: "https://dividai.com" as string | undefined,
+    href: "https://dividai.com/portfolio" as string | undefined,
   },
 ];
 

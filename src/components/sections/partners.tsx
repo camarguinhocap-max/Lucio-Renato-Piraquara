@@ -12,7 +12,7 @@ const logos = [
     href: "https://www.instagram.com/altonia.distribuidora",
     size: "square" as const,
   },
-  { src: dividai, alt: "DividAI", href: "https://dividai.com", size: "square" as const },
+  { src: dividai, alt: "DividAI", href: "https://dividai.com/portfolio", size: "square" as const },
 ];
 
 export function Partners() {
