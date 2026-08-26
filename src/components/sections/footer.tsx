@@ -1,11 +1,11 @@
 export function SiteFooter() {
   return (
-    <footer className="bg-petrol text-petrol-foreground">
+    <footer className="bg-foreground text-background">
       <div className="container-editorial py-16">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-sm bg-petrol-foreground text-petrol font-serif text-xl">
+              <span className="grid h-10 w-10 place-items-center rounded-sm bg-background text-foreground font-serif text-xl">
                 LR
               </span>
               <div>
@@ -103,7 +103,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 pt-6 border-t border-petrol-foreground/15 flex flex-col sm:flex-row gap-3 justify-between text-xs opacity-70">
+        <div className="mt-14 pt-6 border-t border-background/15 flex flex-col sm:flex-row gap-3 justify-between text-xs opacity-70">
           <p>© {new Date().getFullYear()} Piraquara On-line. Todos os direitos reservados.</p>
           <p>Feito em Piraquara, com orgulho local.</p>
         </div>

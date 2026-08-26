@@ -26,7 +26,7 @@ export function Lucio() {
   const ref = useReveal<HTMLDivElement>();
 
   return (
-    <section id="lucio" className="py-20 md:py-32 bg-petrol text-petrol-foreground">
+    <section id="lucio" className="py-20 md:py-32 bg-foreground text-background">
       <div ref={ref} className="container-editorial grid lg:grid-cols-12 gap-12 items-start">
         <div className="reveal lg:col-span-5">
           <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
@@ -36,7 +36,7 @@ export function Lucio() {
               loading="lazy"
               className="h-full w-full object-cover object-top"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-petrol/70 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
             <p className="absolute inset-x-0 bottom-0 p-4 text-xs uppercase tracking-[0.22em] opacity-90">
               Com Sérgio Moro, no apoio a um novo governo para o Paraná
             </p>
@@ -52,7 +52,7 @@ export function Lucio() {
                   className="h-full w-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-graphite/85 via-graphite/10 to-transparent" />
-                <figcaption className="absolute inset-x-0 bottom-0 p-3 text-[11px] leading-snug text-petrol-foreground/90">
+                <figcaption className="absolute inset-x-0 bottom-0 p-3 text-[11px] leading-snug text-background/90">
                   {e.caption}
                 </figcaption>
               </figure>
@@ -109,7 +109,7 @@ export function Lucio() {
             </div>
           </div>
 
-          <div className="mt-12 grid sm:grid-cols-3 gap-8 pt-8 border-t border-petrol-foreground/15">
+          <div className="mt-12 grid sm:grid-cols-3 gap-8 pt-8 border-t border-background/15">
             {pillars.map((p) => (
               <div key={p.t}>
                 <p className="font-serif text-xl">{p.t}</p>
