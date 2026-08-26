@@ -54,6 +54,19 @@ export const Route = createFileRoute("/parceiros")({
       { property: "og:url", content: `${SITE}/parceiros` },
     ],
     links: [{ rel: "canonical", href: `${SITE}/parceiros` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Início", item: SITE },
+            { "@type": "ListItem", position: 2, name: "Parceiros", item: `${SITE}/parceiros` },
+          ],
+        }),
+      },
+    ],
   }),
   component: ParceirosPage,
 });

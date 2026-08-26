@@ -20,6 +20,24 @@ export const Route = createFileRoute("/utilidade-publica")({
       { property: "og:url", content: `${SITE}/utilidade-publica` },
     ],
     links: [{ rel: "canonical", href: `${SITE}/utilidade-publica` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Início", item: SITE },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Utilidade Pública",
+              item: `${SITE}/utilidade-publica`,
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: UtilidadePublicaPage,
 });
