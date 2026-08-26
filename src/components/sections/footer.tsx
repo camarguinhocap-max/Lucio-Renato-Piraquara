@@ -71,7 +71,12 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:opacity-100 opacity-80">
+                <a
+                  href="https://www.youtube.com/@piraquaraon-line"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-100 opacity-80"
+                >
                   YouTube
                 </a>
               </li>

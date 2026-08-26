@@ -13,9 +13,9 @@ const channels = [
   },
   {
     name: "YouTube",
-    handle: "/piraquaraonline",
+    handle: "@PiraquaraOn-Line",
     desc: "Reportagens em vídeo e entrevistas locais.",
-    href: "#",
+    href: "https://www.youtube.com/@piraquaraon-line",
   },
   {
     name: "WhatsApp",
