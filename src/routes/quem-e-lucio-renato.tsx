@@ -13,7 +13,7 @@ export const Route = createFileRoute("/quem-e-lucio-renato")({
       {
         name: "description",
         content:
-          "Lúcio Renato: 28 anos como comerciante, ex-vereador desde 1997, pai de 7 filhos e fundador do Piraquara On-line. Conheça a trajetória dele em Piraquara, Paraná.",
+          "Lúcio Renato: 28 anos como comerciante, ex-vereador desde 1994, pai de 7 filhos e fundador do Piraquara On-line. Conheça a trajetória dele em Piraquara, Paraná.",
       },
       { property: "og:title", content: "Quem é Lúcio Renato | Piraquara-PR" },
       { property: "og:type", content: "profile" },

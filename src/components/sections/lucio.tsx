@@ -76,7 +76,7 @@ export function Lucio() {
               acessível, presente e disposto a ouvir antes de agir.
             </p>
             <p>
-              Desde 1997, sua trajetória se confunde com a própria história política de Piraquara.
+              Desde 1994, sua trajetória se confunde com a própria história política de Piraquara.
               Como ex-vereador, levou para dentro do poder público a mesma proximidade que sempre
               teve nas ruas — sem perder a essência de quem nunca deixou de ser, antes de tudo,
               morador e comerciante da cidade.
@@ -100,7 +100,7 @@ export function Lucio() {
               <p className="opacity-70">como comerciante em Piraquara</p>
             </div>
             <div>
-              <p className="font-serif text-2xl">Desde 1997</p>
+              <p className="font-serif text-2xl">Desde 1994</p>
               <p className="opacity-70">na vida pública da cidade</p>
             </div>
             <div>
