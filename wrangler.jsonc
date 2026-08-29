@@ -4,4 +4,20 @@
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"],
   "main": "src/server.ts",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "piraquara-posts",
+      "database_id": "29fb8e67-3910-4e57-a6c5-fb90ffbcc23b"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "PHOTOS",
+      "id": "6556784703d74549ad97008e7d2ecde5"
+    }
+  ],
+  "ai": {
+    "binding": "AI"
+  }
 }
