@@ -1,0 +1,5 @@
+# .dev.vars.example
+# Copy this file to .dev.vars (git-ignored) and fill in real values for local `wrangler dev` testing.
+TELEGRAM_BOT_TOKEN=123456:paste-your-real-bot-token-here
+TELEGRAM_WEBHOOK_SECRET=any-random-string-you-pick
+TELEGRAM_AUTHORIZED_IDS=111111111,222222222
