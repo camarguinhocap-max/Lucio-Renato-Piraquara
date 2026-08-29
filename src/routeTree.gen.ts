@@ -17,6 +17,7 @@ import { Route as QuemELucioRenatoRouteImport } from './routes/quem-e-lucio-rena
 import { Route as RedesRouteImport } from './routes/redes'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UtilidadePublicaRouteImport } from './routes/utilidade-publica'
+import { Route as FotosKeyRouteImport } from './routes/fotos.$key'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,6 +59,11 @@ const UtilidadePublicaRoute = UtilidadePublicaRouteImport.update({
   path: '/utilidade-publica',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FotosKeyRoute = FotosKeyRouteImport.update({
+  id: '/fotos/$key',
+  path: '/fotos/$key',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/redes': typeof RedesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/utilidade-publica': typeof UtilidadePublicaRoute
+  '/fotos/$key': typeof FotosKeyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByTo {
   '/redes': typeof RedesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/utilidade-publica': typeof UtilidadePublicaRoute
+  '/fotos/$key': typeof FotosKeyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -89,6 +97,7 @@ export interface FileRoutesById {
   '/redes': typeof RedesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/utilidade-publica': typeof UtilidadePublicaRoute
+  '/fotos/$key': typeof FotosKeyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/redes'
     | '/sitemap.xml'
     | '/utilidade-publica'
+    | '/fotos/$key'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/redes'
     | '/sitemap.xml'
     | '/utilidade-publica'
+    | '/fotos/$key'
   id:
     | '__root__'
     | '/'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/redes'
     | '/sitemap.xml'
     | '/utilidade-publica'
+    | '/fotos/$key'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -132,6 +144,7 @@ export interface RootRouteChildren {
   RedesRoute: typeof RedesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UtilidadePublicaRoute: typeof UtilidadePublicaRoute
+  FotosKeyRoute: typeof FotosKeyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UtilidadePublicaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fotos/$key': {
+      id: '/fotos/$key'
+      path: '/fotos/$key'
+      fullPath: '/fotos/$key'
+      preLoaderRoute: typeof FotosKeyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -204,6 +224,7 @@ const rootRouteChildren: RootRouteChildren = {
   RedesRoute: RedesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UtilidadePublicaRoute: UtilidadePublicaRoute,
+  FotosKeyRoute: FotosKeyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
