@@ -17,7 +17,9 @@ import { Route as QuemELucioRenatoRouteImport } from './routes/quem-e-lucio-rena
 import { Route as RedesRouteImport } from './routes/redes'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UtilidadePublicaRouteImport } from './routes/utilidade-publica'
+import { Route as ApiPostsRouteImport } from './routes/api.posts'
 import { Route as FotosKeyRouteImport } from './routes/fotos.$key'
+import { Route as ApiPostsIdRouteImport } from './routes/api.posts.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -59,10 +61,20 @@ const UtilidadePublicaRoute = UtilidadePublicaRouteImport.update({
   path: '/utilidade-publica',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPostsRoute = ApiPostsRouteImport.update({
+  id: '/api/posts',
+  path: '/api/posts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FotosKeyRoute = FotosKeyRouteImport.update({
   id: '/fotos/$key',
   path: '/fotos/$key',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPostsIdRoute = ApiPostsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiPostsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -74,7 +86,9 @@ export interface FileRoutesByFullPath {
   '/redes': typeof RedesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/utilidade-publica': typeof UtilidadePublicaRoute
+  '/api/posts': typeof ApiPostsRouteWithChildren
   '/fotos/$key': typeof FotosKeyRoute
+  '/api/posts/$id': typeof ApiPostsIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -85,7 +99,9 @@ export interface FileRoutesByTo {
   '/redes': typeof RedesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/utilidade-publica': typeof UtilidadePublicaRoute
+  '/api/posts': typeof ApiPostsRouteWithChildren
   '/fotos/$key': typeof FotosKeyRoute
+  '/api/posts/$id': typeof ApiPostsIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -97,7 +113,9 @@ export interface FileRoutesById {
   '/redes': typeof RedesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/utilidade-publica': typeof UtilidadePublicaRoute
+  '/api/posts': typeof ApiPostsRouteWithChildren
   '/fotos/$key': typeof FotosKeyRoute
+  '/api/posts/$id': typeof ApiPostsIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -110,7 +128,9 @@ export interface FileRouteTypes {
     | '/redes'
     | '/sitemap.xml'
     | '/utilidade-publica'
+    | '/api/posts'
     | '/fotos/$key'
+    | '/api/posts/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -121,7 +141,9 @@ export interface FileRouteTypes {
     | '/redes'
     | '/sitemap.xml'
     | '/utilidade-publica'
+    | '/api/posts'
     | '/fotos/$key'
+    | '/api/posts/$id'
   id:
     | '__root__'
     | '/'
@@ -132,7 +154,9 @@ export interface FileRouteTypes {
     | '/redes'
     | '/sitemap.xml'
     | '/utilidade-publica'
+    | '/api/posts'
     | '/fotos/$key'
+    | '/api/posts/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -144,6 +168,7 @@ export interface RootRouteChildren {
   RedesRoute: typeof RedesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UtilidadePublicaRoute: typeof UtilidadePublicaRoute
+  ApiPostsRoute: typeof ApiPostsRouteWithChildren
   FotosKeyRoute: typeof FotosKeyRoute
 }
 
@@ -205,6 +230,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UtilidadePublicaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/posts': {
+      id: '/api/posts'
+      path: '/api/posts'
+      fullPath: '/api/posts'
+      preLoaderRoute: typeof ApiPostsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fotos/$key': {
       id: '/fotos/$key'
       path: '/fotos/$key'
@@ -212,8 +244,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FotosKeyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/posts/$id': {
+      id: '/api/posts/$id'
+      path: '/$id'
+      fullPath: '/api/posts/$id'
+      preLoaderRoute: typeof ApiPostsIdRouteImport
+      parentRoute: typeof ApiPostsRoute
+    }
   }
 }
+
+interface ApiPostsRouteChildren {
+  ApiPostsIdRoute: typeof ApiPostsIdRoute
+}
+
+const ApiPostsRouteChildren: ApiPostsRouteChildren = {
+  ApiPostsIdRoute: ApiPostsIdRoute,
+}
+
+const ApiPostsRouteWithChildren = ApiPostsRoute._addFileChildren(
+  ApiPostsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -224,6 +275,7 @@ const rootRouteChildren: RootRouteChildren = {
   RedesRoute: RedesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UtilidadePublicaRoute: UtilidadePublicaRoute,
+  ApiPostsRoute: ApiPostsRouteWithChildren,
   FotosKeyRoute: FotosKeyRoute,
 }
 export const routeTree = rootRouteImport
