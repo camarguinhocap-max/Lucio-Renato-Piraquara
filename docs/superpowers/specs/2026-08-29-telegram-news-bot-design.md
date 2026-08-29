@@ -31,7 +31,7 @@ Telegram (usuário autorizado)
 Webhook do bot  ──►  Worker (Cloudflare) — mesmo Worker que já serve o site
         │                    │
         │                    ├─► Cloudflare D1 (tabela `posts`)
-        │                    ├─► Cloudflare R2 (fotos)
+        │                    ├─► Cloudflare Workers KV (fotos)
         │                    └─► Cloudflare Workers AI (revisão de texto)
         ▼
 Confirmação/erro de volta pro Telegram
@@ -45,8 +45,16 @@ API pública do Worker  GET /api/posts?categoria=...
 Páginas /conteudos/[categoria] e /conteudos/[categoria]/[id]
 ```
 
+**Nota (29/08, durante a implementação):** trocamos R2 por Workers KV pra guardar as
+fotos — o R2 exige um clique de "ativar assinatura" no painel da Cloudflare mesmo pra
+usar só a camada gratuita (usa o cartão já cadastrado na conta, mesmo cobrando $0 dentro
+do limite grátis), e preferimos evitar essa etapa. O Workers KV não exige nada disso, tem
+camada gratuita (1GB, 100 mil leituras/dia) e aceita valores binários de até 25MB — bem
+acima do limite de 5MB por foto que já tínhamos definido. O resto do desenho abaixo
+continua igual, só trocando "R2" por "Workers KV" onde aparecer.
+
 O domínio principal (`luciorenatopiraquara.com.br`) roda no mesmo Worker que
-tem os bindings de D1/R2, então pode ler direto. O espelho no Lovable
+tem os bindings de D1/KV, então pode ler direto. O espelho no Lovable
 (`piraquaraonline.lovable.app`) não tem esses bindings — ele busca os mesmos
 dados via a API pública acima (`fetch` HTTP normal, cross-origin). Assim os
 dois ficam sempre atualizados sem precisar de deploy nem de clicar "Publish"
@@ -62,13 +70,13 @@ Tabela `posts`:
 | `categoria` | text | um dos 6 slugs (`noticias-locais`, `utilidade-publica`, `cobertura-comunitaria`, `agenda-da-cidade`, `videos-e-reels`, `redes-sociais`) |
 | `titulo` | text | derivado automaticamente das primeiras ~60 caracteres do texto |
 | `texto` | text | corpo completo do post |
-| `foto_url` | text, nullable | URL pública do objeto no R2, se houver foto |
+| `foto_url` | text, nullable | URL pública do arquivo no Workers KV, se houver foto |
 | `autor_telegram_id` | integer | quem publicou |
 | `autor_nome` | text | nome/username do Telegram, só pra referência interna |
 | `criado_em` | timestamp | |
 
-Fotos: guardadas no bucket R2 com chave `posts/{uuid}.jpg`, servidas via rota
-pública do Worker ou binding público do bucket.
+Fotos: guardadas no Workers KV com chave `{uuid}.jpg`, servidas via rota
+pública própria do Worker (`/fotos/:key`).
 
 ## Fluxo do bot
 
@@ -83,14 +91,14 @@ pública do Worker ou binding público do bucket.
    b. Se o texto revisado for igual ao original → publica direto.
    c. Se for diferente → bot manda os dois textos e dois botões inline
       ("Usar revisado" / "Usar original"); só publica depois da escolha.
-4. Ao publicar: sobe a foto pro R2 (se houver), grava a linha no D1, responde
+4. Ao publicar: sobe a foto pro Workers KV (se houver), grava a linha no D1, responde
    "✅ Publicado em {categoria}: {link}" com um botão inline **🗑️ Excluir**
    anexado (carrega o `id` do post no `callback_data`).
 5. Comando `/ultimos` — lista os últimos N posts (todas categorias ou, se
    enviado como `/ultimos noticias-locais`, filtrado), cada um com seu próprio
    botão **🗑️ Excluir**.
 6. Callback de exclusão: verifica se quem clicou é o mesmo autor ou está na
-   lista de autorizados, apaga a linha do D1 e o objeto do R2 (se houver),
+   lista de autorizados, apaga a linha do D1 e o arquivo do Workers KV (se houver),
    edita a mensagem confirmando "🗑️ Excluído".
 
 ## Autorização
@@ -107,7 +115,7 @@ esse secret (o desenvolvedor faz isso, é um comando só).
   escolher a categoria de novo antes.
 - Foto maior que o limite (Telegram já limita a ~20MB; vamos impor limite
   menor, ~5MB, adequado pra web) → avisa erro, nada é publicado pela metade.
-- Falha ao gravar no D1 ou subir a foto no R2 → bot avisa "deu erro, tenta de
+- Falha ao gravar no D1 ou subir a foto no Workers KV → bot avisa "deu erro, tenta de
   novo", nunca finge que publicou sem ter publicado.
 - Falha da chamada à Workers AI (timeout, etc.) → publica o texto original
   sem revisão, sem travar o fluxo (revisão é um "nice to have", não pode ser
@@ -128,7 +136,7 @@ esse secret (o desenvolvedor faz isso, é um comando só).
 
 ## Testes / rollout
 
-Sem ambiente de staging separado (evita duplicar D1/R2/bot só pra isso).
+Sem ambiente de staging separado (evita duplicar D1/KV/bot só pra isso).
 Testes acontecem no bot real, contra os dados reais — qualquer post de teste
 é removido na hora com o botão 🗑️ Excluir ou via `/ultimos`.
 
@@ -141,7 +149,7 @@ Testes acontecem no bot real, contra os dados reais — qualquer post de teste
    `TELEGRAM_BOT_TOKEN`, `TELEGRAM_AUTHORIZED_IDS`.
 4. Desenvolvedor registra o webhook do bot apontando pro Worker (um comando
    `curl` único, feito uma vez).
-5. Desenvolvedor cria o binding D1 e R2 no `wrangler.jsonc` e roda a migration
+5. Desenvolvedor cria o binding D1 e Workers KV no `wrangler.jsonc` e roda a migration
    inicial da tabela `posts`.
 
 ## Próximos passos (v2, não agora)
