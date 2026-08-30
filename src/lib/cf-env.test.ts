@@ -1,5 +1,13 @@
+import { AsyncLocalStorage } from "node:async_hooks";
 import { describe, expect, it } from "vitest";
-import { getCloudflareEnv, getCloudflareEnvOrNull, runWithCloudflareEnv } from "./cf-env";
+import {
+  getCloudflareEnv,
+  getCloudflareEnvOrNull,
+  runWithCloudflareEnv,
+  setCloudflareEnvStorage,
+} from "./cf-env";
+
+setCloudflareEnvStorage(new AsyncLocalStorage());
 
 describe("cf-env", () => {
   it("getCloudflareEnvOrNull returns null outside of a request context", () => {

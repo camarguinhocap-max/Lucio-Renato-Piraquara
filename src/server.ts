@@ -1,8 +1,11 @@
 import "./lib/error-capture";
 
+import { AsyncLocalStorage } from "node:async_hooks";
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
-import { runWithCloudflareEnv } from "./lib/cf-env";
+import { runWithCloudflareEnv, setCloudflareEnvStorage } from "./lib/cf-env";
+
+setCloudflareEnvStorage(new AsyncLocalStorage<Env>());
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
