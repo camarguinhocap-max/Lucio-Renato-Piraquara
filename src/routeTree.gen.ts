@@ -18,6 +18,7 @@ import { Route as RedesRouteImport } from './routes/redes'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UtilidadePublicaRouteImport } from './routes/utilidade-publica'
 import { Route as ApiPostsRouteImport } from './routes/api.posts'
+import { Route as ApiTelegramWebhookRouteImport } from './routes/api.telegram-webhook'
 import { Route as FotosKeyRouteImport } from './routes/fotos.$key'
 import { Route as ApiPostsIdRouteImport } from './routes/api.posts.$id'
 
@@ -66,6 +67,11 @@ const ApiPostsRoute = ApiPostsRouteImport.update({
   path: '/api/posts',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiTelegramWebhookRoute = ApiTelegramWebhookRouteImport.update({
+  id: '/api/telegram-webhook',
+  path: '/api/telegram-webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FotosKeyRoute = FotosKeyRouteImport.update({
   id: '/fotos/$key',
   path: '/fotos/$key',
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/utilidade-publica': typeof UtilidadePublicaRoute
   '/api/posts': typeof ApiPostsRouteWithChildren
+  '/api/telegram-webhook': typeof ApiTelegramWebhookRoute
   '/fotos/$key': typeof FotosKeyRoute
   '/api/posts/$id': typeof ApiPostsIdRoute
 }
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/utilidade-publica': typeof UtilidadePublicaRoute
   '/api/posts': typeof ApiPostsRouteWithChildren
+  '/api/telegram-webhook': typeof ApiTelegramWebhookRoute
   '/fotos/$key': typeof FotosKeyRoute
   '/api/posts/$id': typeof ApiPostsIdRoute
 }
@@ -114,6 +122,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/utilidade-publica': typeof UtilidadePublicaRoute
   '/api/posts': typeof ApiPostsRouteWithChildren
+  '/api/telegram-webhook': typeof ApiTelegramWebhookRoute
   '/fotos/$key': typeof FotosKeyRoute
   '/api/posts/$id': typeof ApiPostsIdRoute
 }
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/utilidade-publica'
     | '/api/posts'
+    | '/api/telegram-webhook'
     | '/fotos/$key'
     | '/api/posts/$id'
   fileRoutesByTo: FileRoutesByTo
@@ -142,6 +152,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/utilidade-publica'
     | '/api/posts'
+    | '/api/telegram-webhook'
     | '/fotos/$key'
     | '/api/posts/$id'
   id:
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/utilidade-publica'
     | '/api/posts'
+    | '/api/telegram-webhook'
     | '/fotos/$key'
     | '/api/posts/$id'
   fileRoutesById: FileRoutesById
@@ -169,6 +181,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UtilidadePublicaRoute: typeof UtilidadePublicaRoute
   ApiPostsRoute: typeof ApiPostsRouteWithChildren
+  ApiTelegramWebhookRoute: typeof ApiTelegramWebhookRoute
   FotosKeyRoute: typeof FotosKeyRoute
 }
 
@@ -237,6 +250,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPostsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/telegram-webhook': {
+      id: '/api/telegram-webhook'
+      path: '/api/telegram-webhook'
+      fullPath: '/api/telegram-webhook'
+      preLoaderRoute: typeof ApiTelegramWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fotos/$key': {
       id: '/fotos/$key'
       path: '/fotos/$key'
@@ -276,6 +296,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UtilidadePublicaRoute: UtilidadePublicaRoute,
   ApiPostsRoute: ApiPostsRouteWithChildren,
+  ApiTelegramWebhookRoute: ApiTelegramWebhookRoute,
   FotosKeyRoute: FotosKeyRoute,
 }
 export const routeTree = rootRouteImport
