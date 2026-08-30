@@ -19,6 +19,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UtilidadePublicaRouteImport } from './routes/utilidade-publica'
 import { Route as ApiPostsRouteImport } from './routes/api.posts'
 import { Route as ApiTelegramWebhookRouteImport } from './routes/api.telegram-webhook'
+import { Route as ConteudosCategoriaRouteImport } from './routes/conteudos.$categoria'
 import { Route as FotosKeyRouteImport } from './routes/fotos.$key'
 import { Route as ApiPostsIdRouteImport } from './routes/api.posts.$id'
 
@@ -72,6 +73,11 @@ const ApiTelegramWebhookRoute = ApiTelegramWebhookRouteImport.update({
   path: '/api/telegram-webhook',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudosCategoriaRoute = ConteudosCategoriaRouteImport.update({
+  id: '/$categoria',
+  path: '/$categoria',
+  getParentRoute: () => ConteudosRoute,
+} as any)
 const FotosKeyRoute = FotosKeyRouteImport.update({
   id: '/fotos/$key',
   path: '/fotos/$key',
@@ -86,7 +92,7 @@ const ApiPostsIdRoute = ApiPostsIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
-  '/conteudos': typeof ConteudosRoute
+  '/conteudos': typeof ConteudosRouteWithChildren
   '/parceiros': typeof ParceirosRoute
   '/quem-e-lucio-renato': typeof QuemELucioRenatoRoute
   '/redes': typeof RedesRoute
@@ -94,13 +100,14 @@ export interface FileRoutesByFullPath {
   '/utilidade-publica': typeof UtilidadePublicaRoute
   '/api/posts': typeof ApiPostsRouteWithChildren
   '/api/telegram-webhook': typeof ApiTelegramWebhookRoute
+  '/conteudos/$categoria': typeof ConteudosCategoriaRoute
   '/fotos/$key': typeof FotosKeyRoute
   '/api/posts/$id': typeof ApiPostsIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
-  '/conteudos': typeof ConteudosRoute
+  '/conteudos': typeof ConteudosRouteWithChildren
   '/parceiros': typeof ParceirosRoute
   '/quem-e-lucio-renato': typeof QuemELucioRenatoRoute
   '/redes': typeof RedesRoute
@@ -108,6 +115,7 @@ export interface FileRoutesByTo {
   '/utilidade-publica': typeof UtilidadePublicaRoute
   '/api/posts': typeof ApiPostsRouteWithChildren
   '/api/telegram-webhook': typeof ApiTelegramWebhookRoute
+  '/conteudos/$categoria': typeof ConteudosCategoriaRoute
   '/fotos/$key': typeof FotosKeyRoute
   '/api/posts/$id': typeof ApiPostsIdRoute
 }
@@ -115,7 +123,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
-  '/conteudos': typeof ConteudosRoute
+  '/conteudos': typeof ConteudosRouteWithChildren
   '/parceiros': typeof ParceirosRoute
   '/quem-e-lucio-renato': typeof QuemELucioRenatoRoute
   '/redes': typeof RedesRoute
@@ -123,6 +131,7 @@ export interface FileRoutesById {
   '/utilidade-publica': typeof UtilidadePublicaRoute
   '/api/posts': typeof ApiPostsRouteWithChildren
   '/api/telegram-webhook': typeof ApiTelegramWebhookRoute
+  '/conteudos/$categoria': typeof ConteudosCategoriaRoute
   '/fotos/$key': typeof FotosKeyRoute
   '/api/posts/$id': typeof ApiPostsIdRoute
 }
@@ -139,6 +148,7 @@ export interface FileRouteTypes {
     | '/utilidade-publica'
     | '/api/posts'
     | '/api/telegram-webhook'
+    | '/conteudos/$categoria'
     | '/fotos/$key'
     | '/api/posts/$id'
   fileRoutesByTo: FileRoutesByTo
@@ -153,6 +163,7 @@ export interface FileRouteTypes {
     | '/utilidade-publica'
     | '/api/posts'
     | '/api/telegram-webhook'
+    | '/conteudos/$categoria'
     | '/fotos/$key'
     | '/api/posts/$id'
   id:
@@ -167,6 +178,7 @@ export interface FileRouteTypes {
     | '/utilidade-publica'
     | '/api/posts'
     | '/api/telegram-webhook'
+    | '/conteudos/$categoria'
     | '/fotos/$key'
     | '/api/posts/$id'
   fileRoutesById: FileRoutesById
@@ -174,7 +186,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContatoRoute: typeof ContatoRoute
-  ConteudosRoute: typeof ConteudosRoute
+  ConteudosRoute: typeof ConteudosRouteWithChildren
   ParceirosRoute: typeof ParceirosRoute
   QuemELucioRenatoRoute: typeof QuemELucioRenatoRoute
   RedesRoute: typeof RedesRoute
@@ -257,6 +269,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiTelegramWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/$categoria': {
+      id: '/conteudos/$categoria'
+      path: '/$categoria'
+      fullPath: '/conteudos/$categoria'
+      preLoaderRoute: typeof ConteudosCategoriaRouteImport
+      parentRoute: typeof ConteudosRoute
+    }
     '/fotos/$key': {
       id: '/fotos/$key'
       path: '/fotos/$key'
@@ -274,6 +293,18 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface ConteudosRouteChildren {
+  ConteudosCategoriaRoute: typeof ConteudosCategoriaRoute
+}
+
+const ConteudosRouteChildren: ConteudosRouteChildren = {
+  ConteudosCategoriaRoute: ConteudosCategoriaRoute,
+}
+
+const ConteudosRouteWithChildren = ConteudosRoute._addFileChildren(
+  ConteudosRouteChildren,
+)
+
 interface ApiPostsRouteChildren {
   ApiPostsIdRoute: typeof ApiPostsIdRoute
 }
@@ -289,7 +320,7 @@ const ApiPostsRouteWithChildren = ApiPostsRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContatoRoute: ContatoRoute,
-  ConteudosRoute: ConteudosRoute,
+  ConteudosRoute: ConteudosRouteWithChildren,
   ParceirosRoute: ParceirosRoute,
   QuemELucioRenatoRoute: QuemELucioRenatoRoute,
   RedesRoute: RedesRoute,
