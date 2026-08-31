@@ -19,9 +19,11 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UtilidadePublicaRouteImport } from './routes/utilidade-publica'
 import { Route as ApiPostsRouteImport } from './routes/api.posts'
 import { Route as ApiTelegramWebhookRouteImport } from './routes/api.telegram-webhook'
+import { Route as ConteudosIndexRouteImport } from './routes/conteudos.index'
 import { Route as ConteudosCategoriaRouteImport } from './routes/conteudos.$categoria'
 import { Route as FotosKeyRouteImport } from './routes/fotos.$key'
 import { Route as ApiPostsIdRouteImport } from './routes/api.posts.$id'
+import { Route as ConteudosCategoriaIndexRouteImport } from './routes/conteudos.$categoria.index'
 import { Route as ConteudosCategoriaIdRouteImport } from './routes/conteudos.$categoria.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -74,6 +76,11 @@ const ApiTelegramWebhookRoute = ApiTelegramWebhookRouteImport.update({
   path: '/api/telegram-webhook',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudosIndexRoute = ConteudosIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ConteudosRoute,
+} as any)
 const ConteudosCategoriaRoute = ConteudosCategoriaRouteImport.update({
   id: '/$categoria',
   path: '/$categoria',
@@ -88,6 +95,11 @@ const ApiPostsIdRoute = ApiPostsIdRouteImport.update({
   id: '/$id',
   path: '/$id',
   getParentRoute: () => ApiPostsRoute,
+} as any)
+const ConteudosCategoriaIndexRoute = ConteudosCategoriaIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ConteudosCategoriaRoute,
 } as any)
 const ConteudosCategoriaIdRoute = ConteudosCategoriaIdRouteImport.update({
   id: '/$id',
@@ -108,13 +120,14 @@ export interface FileRoutesByFullPath {
   '/api/telegram-webhook': typeof ApiTelegramWebhookRoute
   '/conteudos/$categoria': typeof ConteudosCategoriaRouteWithChildren
   '/fotos/$key': typeof FotosKeyRoute
+  '/conteudos/': typeof ConteudosIndexRoute
   '/api/posts/$id': typeof ApiPostsIdRoute
   '/conteudos/$categoria/$id': typeof ConteudosCategoriaIdRoute
+  '/conteudos/$categoria/': typeof ConteudosCategoriaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
-  '/conteudos': typeof ConteudosRouteWithChildren
   '/parceiros': typeof ParceirosRoute
   '/quem-e-lucio-renato': typeof QuemELucioRenatoRoute
   '/redes': typeof RedesRoute
@@ -122,10 +135,11 @@ export interface FileRoutesByTo {
   '/utilidade-publica': typeof UtilidadePublicaRoute
   '/api/posts': typeof ApiPostsRouteWithChildren
   '/api/telegram-webhook': typeof ApiTelegramWebhookRoute
-  '/conteudos/$categoria': typeof ConteudosCategoriaRouteWithChildren
   '/fotos/$key': typeof FotosKeyRoute
+  '/conteudos': typeof ConteudosIndexRoute
   '/api/posts/$id': typeof ApiPostsIdRoute
   '/conteudos/$categoria/$id': typeof ConteudosCategoriaIdRoute
+  '/conteudos/$categoria': typeof ConteudosCategoriaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -141,8 +155,10 @@ export interface FileRoutesById {
   '/api/telegram-webhook': typeof ApiTelegramWebhookRoute
   '/conteudos/$categoria': typeof ConteudosCategoriaRouteWithChildren
   '/fotos/$key': typeof FotosKeyRoute
+  '/conteudos/': typeof ConteudosIndexRoute
   '/api/posts/$id': typeof ApiPostsIdRoute
   '/conteudos/$categoria/$id': typeof ConteudosCategoriaIdRoute
+  '/conteudos/$categoria/': typeof ConteudosCategoriaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -159,13 +175,14 @@ export interface FileRouteTypes {
     | '/api/telegram-webhook'
     | '/conteudos/$categoria'
     | '/fotos/$key'
+    | '/conteudos/'
     | '/api/posts/$id'
     | '/conteudos/$categoria/$id'
+    | '/conteudos/$categoria/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/contato'
-    | '/conteudos'
     | '/parceiros'
     | '/quem-e-lucio-renato'
     | '/redes'
@@ -173,10 +190,11 @@ export interface FileRouteTypes {
     | '/utilidade-publica'
     | '/api/posts'
     | '/api/telegram-webhook'
-    | '/conteudos/$categoria'
     | '/fotos/$key'
+    | '/conteudos'
     | '/api/posts/$id'
     | '/conteudos/$categoria/$id'
+    | '/conteudos/$categoria'
   id:
     | '__root__'
     | '/'
@@ -191,8 +209,10 @@ export interface FileRouteTypes {
     | '/api/telegram-webhook'
     | '/conteudos/$categoria'
     | '/fotos/$key'
+    | '/conteudos/'
     | '/api/posts/$id'
     | '/conteudos/$categoria/$id'
+    | '/conteudos/$categoria/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -281,6 +301,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiTelegramWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/': {
+      id: '/conteudos/'
+      path: '/'
+      fullPath: '/conteudos/'
+      preLoaderRoute: typeof ConteudosIndexRouteImport
+      parentRoute: typeof ConteudosRoute
+    }
     '/conteudos/$categoria': {
       id: '/conteudos/$categoria'
       path: '/$categoria'
@@ -302,6 +329,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPostsIdRouteImport
       parentRoute: typeof ApiPostsRoute
     }
+    '/conteudos/$categoria/': {
+      id: '/conteudos/$categoria/'
+      path: '/'
+      fullPath: '/conteudos/$categoria/'
+      preLoaderRoute: typeof ConteudosCategoriaIndexRouteImport
+      parentRoute: typeof ConteudosCategoriaRoute
+    }
     '/conteudos/$categoria/$id': {
       id: '/conteudos/$categoria/$id'
       path: '/$id'
@@ -314,10 +348,12 @@ declare module '@tanstack/react-router' {
 
 interface ConteudosCategoriaRouteChildren {
   ConteudosCategoriaIdRoute: typeof ConteudosCategoriaIdRoute
+  ConteudosCategoriaIndexRoute: typeof ConteudosCategoriaIndexRoute
 }
 
 const ConteudosCategoriaRouteChildren: ConteudosCategoriaRouteChildren = {
   ConteudosCategoriaIdRoute: ConteudosCategoriaIdRoute,
+  ConteudosCategoriaIndexRoute: ConteudosCategoriaIndexRoute,
 }
 
 const ConteudosCategoriaRouteWithChildren =
@@ -325,10 +361,12 @@ const ConteudosCategoriaRouteWithChildren =
 
 interface ConteudosRouteChildren {
   ConteudosCategoriaRoute: typeof ConteudosCategoriaRouteWithChildren
+  ConteudosIndexRoute: typeof ConteudosIndexRoute
 }
 
 const ConteudosRouteChildren: ConteudosRouteChildren = {
   ConteudosCategoriaRoute: ConteudosCategoriaRouteWithChildren,
+  ConteudosIndexRoute: ConteudosIndexRoute,
 }
 
 const ConteudosRouteWithChildren = ConteudosRoute._addFileChildren(

@@ -84,12 +84,9 @@ export async function executeBotCommand(env: BotExecutorEnv, command: BotCommand
       return;
 
     case "show-menu": {
-      await sendMessage(
-        env.botToken,
-        command.chatId,
-        "Escolhe uma categoria pra publicar:",
-        { replyMarkup: buildCategoryKeyboard() },
-      );
+      await sendMessage(env.botToken, command.chatId, "Escolhe uma categoria pra publicar:", {
+        replyMarkup: buildCategoryKeyboard(),
+      });
       return;
     }
 

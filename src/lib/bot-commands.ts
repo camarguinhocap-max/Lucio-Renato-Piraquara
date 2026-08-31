@@ -1,4 +1,8 @@
-import { categoryFromButtonText, parseCallbackData, type ParsedCallbackData } from "./telegram-keyboards";
+import {
+  categoryFromButtonText,
+  parseCallbackData,
+  type ParsedCallbackData,
+} from "./telegram-keyboards";
 import { isCategorySlug, type CategorySlug } from "./categories";
 
 export interface TelegramUpdate {
@@ -48,7 +52,11 @@ function authorNameFrom(from?: { first_name?: string; username?: string }): stri
   return from.first_name ?? from.username ?? "desconhecido";
 }
 
-export function parseUpdate(update: TelegramUpdate, authorized: boolean, pendingCategoria: CategorySlug | null): BotCommand {
+export function parseUpdate(
+  update: TelegramUpdate,
+  authorized: boolean,
+  pendingCategoria: CategorySlug | null,
+): BotCommand {
   if (!authorized) {
     return { type: "unauthorized" };
   }
@@ -86,7 +94,12 @@ export function parseUpdate(update: TelegramUpdate, authorized: boolean, pending
 
   const categoriaFromButton = categoryFromButtonText(text);
   if (categoriaFromButton) {
-    return { type: "select-category", chatId: message.chat.id, telegramId: message.from.id, categoria: categoriaFromButton };
+    return {
+      type: "select-category",
+      chatId: message.chat.id,
+      telegramId: message.from.id,
+      categoria: categoriaFromButton,
+    };
   }
 
   if (!pendingCategoria) {
