@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 const nav = [
-  { href: "#lucio", label: "Quem é ele" },
-  { href: "#conteudos", label: "Conteúdos" },
-  { href: "#utilidade", label: "Utilidade Pública" },
-  { href: "#redes", label: "Redes" },
+  { href: "/#lucio", label: "Quem é ele" },
+  { href: "/#conteudos", label: "Conteúdos" },
+  { href: "/#utilidade", label: "Utilidade Pública" },
+  { href: "/#redes", label: "Redes" },
   { href: "/parceiros", label: "Parceiros" },
-  { href: "#contato", label: "Contato" },
+  { href: "/#contato", label: "Contato" },
 ];
 
 export function SiteHeader() {
@@ -27,7 +27,7 @@ export function SiteHeader() {
       }`}
     >
       <div className="container-editorial flex h-16 items-center justify-between gap-6 md:h-20">
-        <a href="#top" className="flex items-center gap-2.5 group">
+        <a href="/#top" className="flex items-center gap-2.5 group">
           <span
             aria-hidden
             className="grid h-9 w-9 place-items-center rounded-sm bg-petrol text-petrol-foreground font-serif text-lg leading-none"
@@ -68,7 +68,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <a
-            href="#contato"
+            href="/#contato"
             className="hidden sm:inline-flex items-center rounded-sm bg-petrol px-4 py-2.5 text-sm font-medium text-petrol-foreground hover:opacity-90 transition"
           >
             Falar com a equipe

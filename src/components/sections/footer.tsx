@@ -25,22 +25,22 @@ export function SiteFooter() {
             <p className="text-xs uppercase tracking-[0.18em] opacity-60">Navegação</p>
             <ul className="mt-4 space-y-2 text-sm">
               <li>
-                <a href="#lucio" className="hover:opacity-100 opacity-80">
+                <a href="/#lucio" className="hover:opacity-100 opacity-80">
                   Quem é ele
                 </a>
               </li>
               <li>
-                <a href="#conteudos" className="hover:opacity-100 opacity-80">
+                <a href="/#conteudos" className="hover:opacity-100 opacity-80">
                   Conteúdos
                 </a>
               </li>
               <li>
-                <a href="#utilidade" className="hover:opacity-100 opacity-80">
+                <a href="/#utilidade" className="hover:opacity-100 opacity-80">
                   Utilidade
                 </a>
               </li>
               <li>
-                <a href="#redes" className="hover:opacity-100 opacity-80">
+                <a href="/#redes" className="hover:opacity-100 opacity-80">
                   Redes
                 </a>
               </li>
