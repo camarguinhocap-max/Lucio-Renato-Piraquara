@@ -83,6 +83,16 @@ export async function executeBotCommand(env: BotExecutorEnv, command: BotCommand
     case "ignore":
       return;
 
+    case "show-menu": {
+      await sendMessage(
+        env.botToken,
+        command.chatId,
+        "Escolhe uma categoria pra publicar:",
+        { replyMarkup: buildCategoryKeyboard() },
+      );
+      return;
+    }
+
     case "select-category": {
       await setPendingCategory(env.DB, command.telegramId, command.categoria);
       await sendMessage(

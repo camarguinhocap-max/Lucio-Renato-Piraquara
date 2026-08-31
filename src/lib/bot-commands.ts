@@ -21,6 +21,7 @@ export interface TelegramUpdate {
 export type BotCommand =
   | { type: "unauthorized" }
   | { type: "ignore" }
+  | { type: "show-menu"; chatId: number }
   | { type: "select-category"; chatId: number; telegramId: number; categoria: CategorySlug }
   | { type: "no-pending-category"; chatId: number }
   | {
@@ -71,6 +72,10 @@ export function parseUpdate(update: TelegramUpdate, authorized: boolean, pending
   if (!message || !message.from) return { type: "ignore" };
 
   const text = message.text ?? message.caption ?? "";
+
+  if (text.startsWith("/start") || text.startsWith("/menu")) {
+    return { type: "show-menu", chatId: message.chat.id };
+  }
 
   if (text.startsWith("/ultimos")) {
     const parts = text.trim().split(/\s+/);
