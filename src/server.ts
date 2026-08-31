@@ -16,7 +16,7 @@ let serverEntryPromise: Promise<ServerEntry> | undefined;
 async function getServerEntry(): Promise<ServerEntry> {
   if (!serverEntryPromise) {
     serverEntryPromise = import("@tanstack/react-start/server-entry").then(
-      (m) => ((m as { default?: ServerEntry }).default ?? (m as unknown as ServerEntry)),
+      (m) => (m as { default?: ServerEntry }).default ?? (m as unknown as ServerEntry),
     );
   }
   return serverEntryPromise;
@@ -72,10 +72,17 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 
 export default {
   async fetch(request: Request, env: Env, ctx: unknown) {
-    return runWithCloudflareEnv(env, async () => {
+    const resolvedEnv = env ?? (globalThis as { __env__?: Env }).__env__;
+    if (!resolvedEnv) {
+      console.error(
+        "No Cloudflare env available: neither the fetch() argument nor globalThis.__env__ was set.",
+      );
+      return brandedErrorResponse();
+    }
+    return runWithCloudflareEnv(resolvedEnv, async () => {
       try {
         const handler = await getServerEntry();
-        const response = await handler.fetch(request, env, ctx);
+        const response = await handler.fetch(request, resolvedEnv, ctx);
         return await normalizeCatastrophicSsrResponse(response);
       } catch (error) {
         console.error(error);
