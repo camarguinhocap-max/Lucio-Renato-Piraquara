@@ -9,16 +9,30 @@ const nav = [
   { href: "/#contato", label: "Contato" },
 ];
 
-export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
+interface SiteHeaderProps {
+  /**
+   * Pass true only on pages that render a dark, full-bleed hero right behind
+   * the header (currently just the homepage) — lets the header start
+   * transparent with white text over the photo, then swap to the solid
+   * light-background style once the user scrolls past it. Everywhere else
+   * defaults to the solid style immediately, since those pages have a light
+   * background from the very top and white-on-white text is unreadable.
+   */
+  overHero?: boolean;
+}
+
+export function SiteHeader({ overHero = false }: SiteHeaderProps = {}) {
+  const [scrolledPastHero, setScrolledPastHero] = useState(false);
   const [open, setOpen] = useState(false);
+  const scrolled = !overHero || scrolledPastHero;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    if (!overHero) return;
+    const onScroll = () => setScrolledPastHero(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [overHero]);
 
   return (
     <header
