@@ -2,6 +2,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/sections/footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { ShareButtons } from "@/components/share-buttons";
 import { getCategoryLabel, isCategorySlug } from "@/lib/categories";
 import { getPostDetail } from "@/lib/posts-service";
 
@@ -66,6 +67,7 @@ function PostPage() {
             <p className="mt-4 text-sm text-muted-foreground">{new Date(post.criadoEm).toLocaleDateString("pt-BR")}</p>
             {post.fotoUrl ? <img src={post.fotoUrl} alt={post.titulo} className="mt-8 w-full rounded-sm object-cover" /> : null}
             <p className="mt-8 whitespace-pre-wrap leading-relaxed">{post.texto}</p>
+            <ShareButtons url={`${SITE}/conteudos/${post.categoria}/${post.id}`} title={post.titulo} />
           </div>
         </article>
       </div>

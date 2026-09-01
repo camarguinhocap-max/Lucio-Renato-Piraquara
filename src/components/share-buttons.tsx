@@ -1,0 +1,37 @@
+interface ShareButtonsProps {
+  url: string;
+  title: string;
+}
+
+export function ShareButtons({ url, title }: ShareButtonsProps) {
+  const facebookHref = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+  const whatsappHref = `https://wa.me/?text=${encodeURIComponent(`${title} ${url}`)}`;
+
+  return (
+    <div className="mt-8 flex items-center gap-3 border-t border-border pt-8">
+      <span className="text-sm text-muted-foreground">Compartilhar:</span>
+      <a
+        href={facebookHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Compartilhar no Facebook"
+        className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#1877F2] transition hover:opacity-90"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4 fill-white">
+          <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94Z" />
+        </svg>
+      </a>
+      <a
+        href={whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Compartilhar no WhatsApp"
+        className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366] transition hover:opacity-90"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4 fill-white">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.02c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.1 8.1 0 0 1-1.24-4.24c0-4.48 3.65-8.12 8.13-8.12 4.48 0 8.12 3.64 8.12 8.12s-3.64 8.11-8.12 8.11Zm4.47-6.08c-.24-.12-1.45-.72-1.67-.8-.22-.08-.39-.12-.55.12-.16.25-.63.8-.77.96-.14.16-.28.18-.52.06-.24-.12-1.03-.38-1.96-1.21-.72-.65-1.21-1.45-1.35-1.69-.14-.25-.02-.38.1-.5.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.75-1.81-.2-.47-.4-.4-.55-.41h-.47c-.16 0-.42.06-.64.3-.22.25-.84.83-.84 2.01 0 1.19.86 2.33.98 2.49.12.16 1.7 2.6 4.11 3.64.57.25 1.02.4 1.37.5.58.19 1.1.16 1.52.1.46-.07 1.45-.6 1.65-1.17.2-.58.2-1.07.14-1.17-.06-.1-.22-.16-.46-.28Z" />
+        </svg>
+      </a>
+    </div>
+  );
+}
